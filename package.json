@@ -61,7 +61,7 @@
     }
   },
   "dependencies": {
-    "standard-version": "^8.0.1"
+    "standard-version": "^8.0.2"
   },
   "nyc": {
     "include": [
