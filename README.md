@@ -1,4 +1,6 @@
 # Ahana FP
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp?ref=badge_shield)
+
 
 This package contains a series of "FP-friendly" classes for use in your code.
 
@@ -22,3 +24,7 @@ If you're able to release new version, you should do:
 npm run release
 git push && git push --tags
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp?ref=badge_large)
