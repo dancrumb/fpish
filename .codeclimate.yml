@@ -1,0 +1,25 @@
+version: '2'
+checks:
+  method-complexity:
+    config:
+      threshold: 9
+plugins:
+  git-legal:
+    enabled: true
+  eslint:
+    enabled: true
+    config: .eslintrc.js
+    channel: eslint-6
+  fixme:
+    enabled: true
+    config:
+      strings:
+        - FIXME
+        - BUG
+        - TODO
+  duplication:
+    enabled: true
+    config:
+      languages:
+        javascript:
+          mass_threshold: 90
