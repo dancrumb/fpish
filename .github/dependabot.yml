@@ -9,7 +9,7 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-    default_labels:
+    labels:
       - "automerge"
-    default_reviewers:
+    reviewers:
       - "dancrumb"
