@@ -22,17 +22,17 @@ export class Optional<T> {
   }
 
   /**
-   * Create an empty Optional instance with type `T`
+   * Create an empty Optional instance with type `ET`
    */
-  static empty<T>() {
-    return new Optional<T>();
+  static empty<ET>() {
+    return new Optional<ET>();
   }
 
   /**
    * Create a non-empty Optional instance with type `T`
    * @param value
    */
-  static of<T>(value: T | Optional<T> | undefined | null): Optional<NonNullable<T>> {
+  static of<NT>(value: NT | Optional<NT> | undefined | null): Optional<NonNullable<NT>> {
     if (typeof value === 'undefined' || value === null) {
       return Optional.empty();
     }
@@ -41,10 +41,10 @@ export class Optional<T> {
         return Optional.empty();
       }
       const val = value.get();
-      return new Optional<NonNullable<T>>(val as NonNullable<T>);
+      return new Optional<NonNullable<NT>>(val as NonNullable<NT>);
     }
 
-    return new Optional<NonNullable<T>>(value as NonNullable<T>);
+    return new Optional<NonNullable<NT>>(value as NonNullable<NT>);
   }
 
   /**

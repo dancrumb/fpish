@@ -14,16 +14,16 @@ export class Either<L, R> {
    * Create a Left-valued `Either`
    * @param value
    */
-  public static left<L, R>(value: L | Optional<L>): Either<L, R> {
-    return new Either<L, R>(Optional.of(value), Optional.empty());
+  public static left<NL, NR>(value: NL | Optional<NL>): Either<NL, NR> {
+    return new Either<NL, NR>(Optional.of(value), Optional.empty());
   }
 
   /**
    * Create a Right-valued `Either`
    * @param value
    */
-  public static right<L, R>(value: R | Optional<R>): Either<L, R> {
-    return new Either<L, R>(Optional.empty(), Optional.of(value));
+  public static right<NL, NR>(value: NR | Optional<NR>): Either<NL, NR> {
+    return new Either<NL, NR>(Optional.empty<NL>(), Optional.of<NR>(value));
   }
 
   private readonly left: Optional<L>;
@@ -172,7 +172,7 @@ export class Either<L, R> {
    * Collapses an `Either` that may contain a left-value that is an `Either`
    * @param either
    */
-  public static joinLeft<L, R>(either: Either<Either<L, R>, R>): Either<L, R> {
+  public static joinLeft<JL, JR>(either: Either<Either<JL, JR>, JR>): Either<JL, JR> {
     if (either.isLeft()) {
       return either.getLeft();
     }
@@ -183,7 +183,7 @@ export class Either<L, R> {
    * Collapses an `Either` that may contain a right-value that is an `Either`
    * @param either
    */
-  public static joinRight<L, R>(either: Either<L, Either<L, R>>): Either<L, R> {
+  public static joinRight<JL, JR>(either: Either<JL, Either<JL, JR>>): Either<JL, JR> {
     if (either.isRight()) {
       return either.getRight();
     }

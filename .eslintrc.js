@@ -29,16 +29,12 @@ module.exports = {
     '@typescript-eslint/no-misused-new': 'error',
     '@typescript-eslint/prefer-for-of': 'error',
     '@typescript-eslint/unified-signatures': 'error',
+    '@typescript-eslint/no-shadow': ['error'],
     eqeqeq: ['error', 'smart'],
     'no-caller': 'error',
     'no-invalid-this': 'error',
     'no-new-wrappers': 'error',
-    'no-shadow': [
-      'error',
-      {
-        hoist: 'all',
-      },
-    ],
+    'no-shadow': 'off',
     'no-throw-literal': 'error',
     'no-unused-labels': 'error',
     'no-var': 'error',

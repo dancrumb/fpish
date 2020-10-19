@@ -41,8 +41,8 @@ export class AsyncData<D, E = {}> {
    * Create an instance of this type that indicates that the request for async data
    * has not yet been made
    */
-  static notAsked<D, E = {}>() {
-    return new AsyncData<D, E>({
+  static notAsked<ND, NE = {}>() {
+    return new AsyncData<ND, NE>({
       status: RemoteDataStatus.NotAsked,
     });
   }
@@ -51,8 +51,8 @@ export class AsyncData<D, E = {}> {
    * Create an instance of this type that indicates that a request is in flight but has not
    * yet completed
    */
-  static loading<D, E = {}>() {
-    return new AsyncData<D, E>({
+  static loading<LD, LE = {}>() {
+    return new AsyncData<LD, LE>({
       status: RemoteDataStatus.Loading,
     });
   }
@@ -65,8 +65,8 @@ export class AsyncData<D, E = {}> {
    *
    * @param data
    */
-  static loaded<D, E = {}>(data: D[]) {
-    return new AsyncData<D, E>({
+  static loaded<LD, LE = {}>(data: LD[]) {
+    return new AsyncData<LD, LE>({
       status: RemoteDataStatus.Success,
       data: Object.freeze(data),
     });
@@ -76,8 +76,8 @@ export class AsyncData<D, E = {}> {
    * Create an instance of this type that indicates that the requests has errored.
    * @param error
    */
-  static errored<D, E = {}>(error: E) {
-    return new AsyncData<D, E>({
+  static errored<ED, EE = {}>(error: EE) {
+    return new AsyncData<ED, EE>({
       status: RemoteDataStatus.Failure,
       error,
     });
@@ -261,9 +261,7 @@ export class AsyncData<D, E = {}> {
   }
 
   sort(compareFn?: (a: D, b: D) => number) {
-    return this.value()
-      .slice()
-      .sort(compareFn);
+    return this.value().slice().sort(compareFn);
   }
 
   get(index: number) {

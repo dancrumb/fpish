@@ -18,8 +18,8 @@ export class Lazy<T> {
    * @param builder - the initializing function. Since this could be doing anything, it can have
    *                  side effects
    */
-  static create<T>(builder: Builder<T>) {
-    return new Lazy<T>(builder);
+  static create<NT>(builder: Builder<NT>) {
+    return new Lazy<NT>(builder);
   }
 
   /**
