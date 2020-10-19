@@ -58,21 +58,21 @@ describe('Optional', () => {
     it('maps one Optional to another', () => {
       expect(
         Optional.of(1)
-          .map(x => x + 3)
+          .map((x) => x + 3)
           .get()
       ).to.equal(4);
     });
     it('maps while squashing internal Optionals', () => {
       expect(
         Optional.of(1)
-          .map(x => Optional.of(x + 3))
+          .map((x) => Optional.of(x + 3))
           .get()
       ).to.equal(4);
     });
     it('maps empty to empty', () => {
       expect(
         Optional.empty()
-          .map(x => x)
+          .map((x) => x)
           .isPresent()
       ).to.be.false;
     });
@@ -81,21 +81,21 @@ describe('Optional', () => {
     it('filters an Optional to the same value if the filter matches', () => {
       expect(
         Optional.of(2)
-          .filter(x => x === 2)
+          .filter((x) => x === 2)
           .get()
       ).to.equal(2);
     });
     it('filters an Optional to empty if the filter does not match', () => {
       expect(
         Optional.of(2)
-          .filter(x => x !== 2)
+          .filter((x) => x !== 2)
           .isPresent()
       ).to.be.false;
     });
     it('filters empty to empty', () => {
       expect(
         Optional.empty()
-          .filter(x => true)
+          .filter((x) => true)
           .isPresent()
       ).to.be.false;
     });
@@ -128,6 +128,29 @@ describe('Optional', () => {
           })
         )
       ).to.equal('{"a":1}');
+    });
+  });
+
+  describe('#property', () => {
+    type Opt = {
+      a: number;
+      b: string;
+    };
+    const getOptional = (): Optional<Opt> =>
+      Optional.of({
+        a: 1,
+        b: 'bee',
+      });
+    it('returns the enclosed property', () => {
+      expect(getOptional().property('a')).to.equal(1);
+      expect(getOptional().property('b')).to.equal('bee');
+    });
+    it('returns undefined', () => {
+      expect(Optional.empty<Opt>().property('a')).to.be.undefined;
+    });
+
+    it('returns the default value', () => {
+      expect(Optional.empty<Opt>().property('a', 9)).to.equal(9);
     });
   });
 });

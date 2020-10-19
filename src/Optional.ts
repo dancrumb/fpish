@@ -218,6 +218,25 @@ export class Optional<T> {
     return Optional.empty<S>();
   }
 
+  /**
+   * Returns a property of the enclosed type. Obviously, this assumes
+   * that the contained type has properties.
+   *
+   * Accepts an optional default value
+   *
+   * @param key a property of the enclosed value
+   * @param orElse a default value
+   */
+  property<K extends keyof T>(key: K): T[K] | undefined;
+  property<K extends keyof T>(key: K, orElse: T[K]): T[K];
+  property<K extends keyof T>(key: K, orElse?: T[K]): T[K] | undefined {
+    const value = this.map((u) => u[key]);
+    if (orElse) {
+      return value.orElse(orElse);
+    }
+    return value.orNothing();
+  }
+
   toJSON() {
     if (haveValue(this.value)) {
       return this.value;
