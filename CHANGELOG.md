@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.2](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.3.1...v2.3.2) (2020-10-19)
+
+
+### Bug Fixes
+
+* 🐛 add `property` method ([adf165b](https://github.com/ohana-pediatrics/ahana-fp/commit/adf165b1bd8b4743cf04e6c07ca4674224e3df91))
+* package.json & package-lock.json to reduce vulnerabilities ([569dab8](https://github.com/ohana-pediatrics/ahana-fp/commit/569dab84d3b128dbe6aebeabf1ea1e49b720759b))
+* upgrade standard-version from 8.0.1 to 8.0.2 ([b115d00](https://github.com/ohana-pediatrics/ahana-fp/commit/b115d00892f9d183be582308ae416c142ceef3bc))
+
 ### [2.3.1](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.3.0...v2.3.1) (2020-06-19)
 
 ## [2.3.0](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.2.4...v2.3.0) (2020-06-19)
