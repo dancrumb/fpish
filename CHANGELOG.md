@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.3.3...v2.4.0) (2020-10-26)
+
+
+### Features
+
+* 🎸 add .orElse to AsyncData ([da530d0](https://github.com/ohana-pediatrics/ahana-fp/commit/da530d092de3dde5e848d899a1f6c498ab33bb2d)), closes [#94](https://github.com/ohana-pediatrics/ahana-fp/issues/94)
+
+
+### Bug Fixes
+
+* 🐛 improve AsyncData behaviour on failed loads ([aba2c04](https://github.com/ohana-pediatrics/ahana-fp/commit/aba2c04fbcc640bc09505d133ccf7c8785fe1efe))
+* 🐛 improve AsyncData behaviour on failed loads ([ec19333](https://github.com/ohana-pediatrics/ahana-fp/commit/ec19333e1ccee3bee556346b54ec743dcb5533dd))
+* package.json & package-lock.json to reduce vulnerabilities ([fbd7124](https://github.com/ohana-pediatrics/ahana-fp/commit/fbd71242d6d8078aa6be35d1e23e84d9bbe40dc7))
+
 ### [2.3.3](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.3.2...v2.3.3) (2020-10-19)
 
 
