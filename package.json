@@ -1,6 +1,6 @@
 {
   "name": "@ahanapediatrics/ahana-fp",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "FP-friendly classes for Typescript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
