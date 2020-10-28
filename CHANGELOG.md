@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.4.0...v2.5.0) (2020-10-28)
+
+
+### Features
+
+* 🎸 ensure that `Optional.property` does not return undef ([5fe40b7](https://github.com/ohana-pediatrics/ahana-fp/commit/5fe40b72e6571897411b46a62c6ab6b6e1eb47c8))
+
 ## [2.4.0](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.3.3...v2.4.0) (2020-10-26)
 
 
