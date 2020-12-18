@@ -58,6 +58,18 @@ export class AsyncData<D, E = {}> {
   }
 
   /**
+   * Create an instance of this type that indicates that a single value has been returned.
+   *
+   * @param data
+   */
+  static loadedSingle<LD, LE = {}>(data: LD) {
+    return new AsyncData<LD, LE>({
+      status: RemoteDataStatus.Success,
+      data: Object.freeze([data]),
+    });
+  }
+
+  /**
    * Create an instance of this type that indicates that some data has been returned by the request.
    *
    * NB: There is nothing here that asserts that the request is complete. This factory method can
@@ -65,7 +77,7 @@ export class AsyncData<D, E = {}> {
    *
    * @param data
    */
-  static loaded<LD, LE = {}>(data: LD[]) {
+  static loaded<LD, LE = {}>(data: readonly LD[]) {
     return new AsyncData<LD, LE>({
       status: RemoteDataStatus.Success,
       data: Object.freeze(data),
