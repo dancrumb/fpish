@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.5.1...v2.6.0) (2020-12-18)
+
+
+### Features
+
+* 🎸 add `loadedSingle` and make `loaded` take readonly ([61e5541](https://github.com/ohana-pediatrics/ahana-fp/commit/61e55415620924aa1428d2146e4b23d09d0c62d7))
+
 ### [2.5.1](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.5.0...v2.5.1) (2020-10-28)
 
 
