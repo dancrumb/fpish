@@ -152,6 +152,9 @@ describe('Optional', () => {
     it('returns the default value for an empty', () => {
       expect(Optional.empty<Opt>().property('a', 9)).to.equal(9);
     });
+    it('returns handles falsy defaults', () => {
+      expect(Optional.empty<Opt>().property('a', 0)).to.equal(0);
+    });
     it('returns the default value for an undefined', () => {
       expect(Optional.of(getOptional()).property('c', 'test')).to.equal('test');
       expect(Optional.of<Opt>(undefined).property('c', '')).to.equal('');
