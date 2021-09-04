@@ -56,7 +56,7 @@ export class Either<L, R> {
    * Returns whether or not the value is right-valued
    */
   public isRight() {
-    return this.left.isPresent();
+    return this.right.isPresent();
   }
 
   /**
