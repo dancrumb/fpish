@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/ohana-pediatrics/ahana-fp/compare/v3.0.0...v3.0.1) (2021-09-04)
+
 ### [2.6.1](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.6.0...v2.6.1) (2021-03-16)
 
 ## [2.6.0](https://github.com/ohana-pediatrics/ahana-fp/compare/v2.5.1...v2.6.0) (2020-12-18)
