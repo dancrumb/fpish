@@ -95,6 +95,17 @@ export class AsyncData<D, E = {}> {
     });
   }
 
+  private cloneWithNewData<U>(data: ReadonlyArray<U>): AsyncData<U, E> {
+    return new AsyncData<U, E>({
+      status: this.status,
+      data,
+    });
+  }
+
+  private containsData(){
+    return this.internal.isRight();
+  }
+
   /**
    * Check the status of the data request
    *
@@ -106,11 +117,16 @@ export class AsyncData<D, E = {}> {
 
   /**
    * Check whether data has been requested
-   *
-   * @param status
    */
   isAsked() {
     return this.status !== RemoteDataStatus.NotAsked;
+  }
+
+  /**
+   * Check whether data is currently loading
+   */
+  isLoading() {
+    return this.status === RemoteDataStatus.Loading;
   }
 
   /**
@@ -135,28 +151,17 @@ export class AsyncData<D, E = {}> {
   }
 
   /**
-   * Checks whether the data is loaded and has the provided `value`.
-   *
-   * This treats the `AsyncData` as single-valued
-   *
-   * @param value
-   */
-  hasValue(value: D) {
-    return this.isLoaded() && this.singleValue() === value;
-  }
-
-  /**
    *
    */
   value(): ReadonlyArray<D> {
-    if (this.status === RemoteDataStatus.Success) {
+    if (this.containsData()) {
       return this.internal.getRight();
     }
     if (this.status === RemoteDataStatus.Failure) {
       throw this.internal.getLeft();
     }
 
-    throw new Error('Trying to access RemoteData before it is ready');
+    throw new Error('Trying to access AsyncData before it has data');
   }
 
   /**
@@ -170,6 +175,17 @@ export class AsyncData<D, E = {}> {
     return val[0];
   }
 
+  loadMore(): AsyncData<D, E> {
+    if (this.containsData()) {
+      return new AsyncData<D, E>({
+        status: RemoteDataStatus.Loading,
+        data: this.internal.getRight(),
+      });
+    }
+
+    return AsyncData.loading();
+  }
+
   /**
    * Get the data as an optional and treat it as a single value
    */
@@ -179,9 +195,12 @@ export class AsyncData<D, E = {}> {
 
   /**
    * Get the data as an optional and treat it as an array
+   *
+   * This will return any internal data that exists. As a result, it will
+   * return data after a call to `loadMore`.
    */
   getAllOptional(): Optional<readonly D[]> {
-    return this.status === RemoteDataStatus.Success
+    return this.containsData()
       ? Optional.of(this.internal.getRight())
       : Optional.empty<D[]>();
   }
@@ -189,6 +208,7 @@ export class AsyncData<D, E = {}> {
   private isArray(v: D | readonly D[]): v is readonly D[] {
     return Array.isArray(v);
   }
+
   /**
    * Treats the data as an Optional and returns the internal
    * value or the provided value.
@@ -211,7 +231,7 @@ export class AsyncData<D, E = {}> {
       return AsyncData.notAsked<U, E>();
     }
 
-    if (this.status === RemoteDataStatus.Loading) {
+    if (this.status === RemoteDataStatus.Loading && !this.containsData()) {
       return AsyncData.loading<U, E>();
     }
 
@@ -225,7 +245,7 @@ export class AsyncData<D, E = {}> {
   ): AsyncData<U, E> {
     return (
       this.getNonLoadedResult() ??
-      AsyncData.loaded(this.internal.getRight().map(callbackfn))
+      this.cloneWithNewData(this.internal.getRight().map(callbackfn))
     );
   }
 
@@ -240,7 +260,7 @@ export class AsyncData<D, E = {}> {
   ): AsyncData<D, E> {
     return (
       this.getNonLoadedResult() ??
-      AsyncData.loaded(this.internal.getRight().filter(callbackfn))
+      this.cloneWithNewData(this.internal.getRight().filter(callbackfn))
     );
   }
 
@@ -255,7 +275,7 @@ export class AsyncData<D, E = {}> {
   ): AsyncData<U, E> {
     return (
       this.getNonLoadedResult() ??
-      AsyncData.loaded<U, E>([
+      this.cloneWithNewData([
         this.internal.getRight().reduce<U>(callbackfn, initialValue),
       ])
     );
@@ -265,8 +285,8 @@ export class AsyncData<D, E = {}> {
     predicate: (value: D, index: number, obj: ReadonlyArray<D>) => boolean,
     thisArg?: unknown
   ): D | undefined {
-    if (this.status !== RemoteDataStatus.Success) {
-      throw new Error('Trying to access RemoteData before it is ready');
+    if (!this.containsData()) {
+      return undefined;
     }
 
     return this.value().find(predicate, thisArg);
@@ -287,11 +307,11 @@ export class AsyncData<D, E = {}> {
       throw new RangeError(`Index ${index} is too small`);
     }
 
-    return AsyncData.loaded(Object.assign([...arr], {[index]: value}));
+    return this.cloneWithNewData(Object.assign([...arr], {[index]: value}));
   }
 
   concat(...items: (D | ConcatArray<D>)[]) {
-    return AsyncData.loaded(this.value().concat(...items));
+    return this.cloneWithNewData(this.value().concat(...items));
   }
 
   sort(compareFn?: (a: D, b: D) => number) {

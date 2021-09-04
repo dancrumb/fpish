@@ -34,6 +34,14 @@ describe('AsyncData', () => {
       expect(async.getOptional().get()).to.equal('test');
     });
 
+    it('can be converted to an Optional when a second request has been made', async () => {
+      const async = AsyncData.loaded<string>(['test']);
+      expect(async.getOptional().isPresent()).to.be.true;
+      const reload = async.loadMore();
+      expect(reload.getOptional().get()).to.equal('test');
+      expect;
+    });
+
     it('can be converted to an Optional array if there is data', async () => {
       const async = AsyncData.loaded<string>(['test']);
       expect(async.getAllOptional().get()).to.deep.equal(['test']);
@@ -42,21 +50,6 @@ describe('AsyncData', () => {
     it('can be converted to an empty Optional if there is an error', async () => {
       const async = AsyncData.errored(new Error('Oh dear'));
       expect(async.getOptional().isPresent()).to.be.false;
-    });
-  });
-
-  describe('.value', () => {
-    it('returns the internal value if successfully loaded', () => {
-      const ad = AsyncData.loaded([1]);
-      expect(ad.value()).to.deep.equal([1]);
-    });
-    it('throws an error if data is not loaded', () => {
-      const ad = AsyncData.loading();
-      expect(() => ad.value()).to.throw('Trying to access RemoteData before it is ready');
-    });
-    it('throws an error if data load failed', () => {
-      const ad = AsyncData.errored(new Error('Testing error'));
-      expect(() => ad.value()).to.throw('Testing error');
     });
   });
 
@@ -70,8 +63,14 @@ describe('AsyncData', () => {
     it('returns the default value if there is no internal value', () => {
       expect(AsyncData.loading().orElse(3)).to.deep.equal(3);
     });
+    it('returns the internal value if on a second load', () => {
+      expect(AsyncData.loaded([5]).loadMore().orElse(3)).to.deep.equal(5);
+    });
     it('returns the default array if there is no internal value', () => {
       expect(AsyncData.loading().orElse([3, 4])).to.deep.equal([3, 4]);
+    });
+    it('returns the internal array value if on a second load', () => {
+      expect(AsyncData.loaded([1, 2]).orElse([3, 4])).to.deep.equal([1, 2]);
     });
   });
 
@@ -82,7 +81,15 @@ describe('AsyncData', () => {
     });
     it('throws an error if data is not loaded', () => {
       const ad = AsyncData.loading();
-      expect(() => ad.value()).to.throw('Trying to access RemoteData before it is ready');
+      expect(() => ad.value()).to.throw('Trying to access AsyncData before it has data');
+    });
+
+    it('does not throw an error if data is loaded, even if in loading state', () => {
+      const ad = AsyncData.loaded([1, 2, 3]).loadMore();
+      expect(ad.isLoading()).to.be.true;
+      expect(() => ad.value()).not.to.throw(
+        'Trying to access AsyncData before it has data'
+      );
     });
 
     it('throws an error if data load failed', () => {
@@ -104,7 +111,7 @@ describe('AsyncData', () => {
     it('throws an error if data is not loaded', () => {
       const ad = AsyncData.loading();
       expect(() => ad.singleValue()).to.throw(
-        'Trying to access RemoteData before it is ready'
+        'Trying to access AsyncData before it has data'
       );
     });
 
