@@ -18,6 +18,53 @@ describe('AsyncData', () => {
     const data = AsyncData.loaded([1, 2, 3, 4]);
     expect(data.reduce((a, x) => a + x, 0).value()).to.deep.equal([10]);
   });
+
+  describe('.isAsked', () => {
+    it('returns true if a request is in flight', () => {
+      const async = AsyncData.loading();
+      expect(async.isAsked()).to.be.true;
+    });
+    it('returns true if a data is loaded', () => {
+      const async = AsyncData.loaded<string>(['']);
+      expect(async.isAsked()).to.be.true;
+    });
+    it('returns true if more data is being loaded', () => {
+      const async = AsyncData.loaded<string>(['']).loadMore();
+      expect(async.isAsked()).to.be.true;
+    });
+    it('returns true if there is an error', () => {
+      const async = AsyncData.errored(new Error('Dummy error'));
+      expect(async.isAsked()).to.be.true;
+    });
+    it('returns false if no request has been sent', () => {
+      const async = AsyncData.notAsked();
+      expect(async.isAsked()).to.be.false;
+    });
+  });
+
+  describe('.isLoaded', () => {
+    it('returns false if a request is in flight', () => {
+      const async = AsyncData.loading();
+      expect(async.isLoaded()).to.be.false;
+    });
+    it('returns true if a data is loaded', () => {
+      const async = AsyncData.loaded<string>(['']);
+      expect(async.isLoaded()).to.be.true;
+    });
+    it('returns false if more data is being loaded', () => {
+      const async = AsyncData.loaded<string>(['']).loadMore();
+      expect(async.isLoaded()).to.be.false;
+    });
+    it('returns true if there is an error', () => {
+      const async = AsyncData.errored(new Error('Dummy error'));
+      expect(async.isLoaded()).to.be.true;
+    });
+    it('returns false if no request has been sent', () => {
+      const async = AsyncData.notAsked();
+      expect(async.isLoaded()).to.be.false;
+    });
+  });
+
   describe('.getOptional', () => {
     it('can be converted to an empty Optional when no request has been made', async () => {
       const async = AsyncData.notAsked<{}>();

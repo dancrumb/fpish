@@ -5,6 +5,8 @@ export enum RemoteDataStatus {
   'Loading',
   'Failure',
   'Success',
+  'Failed' = RemoteDataStatus.Failure,
+  'Succeeded' = RemoteDataStatus.Success
 }
 
 /**
@@ -64,7 +66,7 @@ export class AsyncData<D, E = {}> {
    */
   static loadedSingle<LD, LE = {}>(data: LD) {
     return new AsyncData<LD, LE>({
-      status: RemoteDataStatus.Success,
+      status: RemoteDataStatus.Succeeded,
       data: Object.freeze([data]),
     });
   }
@@ -79,7 +81,7 @@ export class AsyncData<D, E = {}> {
    */
   static loaded<LD, LE = {}>(data: readonly LD[]) {
     return new AsyncData<LD, LE>({
-      status: RemoteDataStatus.Success,
+      status: RemoteDataStatus.Succeeded,
       data: Object.freeze(data),
     });
   }
@@ -102,7 +104,7 @@ export class AsyncData<D, E = {}> {
     });
   }
 
-  private containsData(){
+  private containsData() {
     return this.internal.isRight();
   }
 
@@ -119,23 +121,21 @@ export class AsyncData<D, E = {}> {
    * Check whether data has been requested
    */
   isAsked() {
-    return this.status !== RemoteDataStatus.NotAsked;
+    return this.is(RemoteDataStatus.NotAsked);
   }
 
   /**
    * Check whether data is currently loading
    */
   isLoading() {
-    return this.status === RemoteDataStatus.Loading;
+    return this.is(RemoteDataStatus.Loading);
   }
 
   /**
    * Check whether any data has loaded (or that the request has failed)
    */
   isLoaded() {
-    return (
-      this.status === RemoteDataStatus.Success || this.status === RemoteDataStatus.Failure
-    );
+    return this.is(RemoteDataStatus.Succeeded) || this.is(RemoteDataStatus.Failed);
   }
 
   /**
@@ -157,7 +157,7 @@ export class AsyncData<D, E = {}> {
     if (this.containsData()) {
       return this.internal.getRight();
     }
-    if (this.status === RemoteDataStatus.Failure) {
+    if (this.is(RemoteDataStatus.Failed)) {
       throw this.internal.getLeft();
     }
 

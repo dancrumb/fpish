@@ -30,4 +30,26 @@ describe('Either', () => {
       }
     );
   });
+
+  describe('.isRight', ()=> {
+    it('returns true for right values', () => {
+      const e = Either.right('test');
+      expect(e.isRight()).to.be.true;
+    })
+    it('returns false for left values', () => {
+      const e = Either.left('test');
+      expect(e.isRight()).to.be.false;
+    })
+  })
+
+  describe('.isLeft', ()=> {
+    it('returns true for left values', () => {
+      const e = Either.left('test');
+      expect(e.isLeft()).to.be.true;
+    })
+    it('returns false for right values', () => {
+      const e = Either.right('test');
+      expect(e.isLeft()).to.be.false;
+    })
+  })
 });
