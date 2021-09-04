@@ -121,7 +121,7 @@ export class AsyncData<D, E = {}> {
    * Check whether data has been requested
    */
   isAsked() {
-    return this.is(RemoteDataStatus.NotAsked);
+    return !this.is(RemoteDataStatus.NotAsked);
   }
 
   /**
