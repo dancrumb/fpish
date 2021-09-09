@@ -6,7 +6,7 @@ export enum RemoteDataStatus {
   'Failure',
   'Success',
   'Failed' = RemoteDataStatus.Failure,
-  'Succeeded' = RemoteDataStatus.Success
+  'Succeeded' = RemoteDataStatus.Success,
 }
 
 /**
@@ -134,8 +134,15 @@ export class AsyncData<D, E = {}> {
   /**
    * Check whether any data has loaded (or that the request has failed)
    */
-  isLoaded() {
+   isLoaded() {
     return this.is(RemoteDataStatus.Succeeded) || this.is(RemoteDataStatus.Failed);
+  }
+
+  /**
+   * Check whether the data errored out
+   */
+   isErrored() {
+    return this.is(RemoteDataStatus.Failed);
   }
 
   /**
@@ -220,6 +227,11 @@ export class AsyncData<D, E = {}> {
       return this.getAllOptional().orElse(v);
     }
     return this.getOptional().orElse(v);
+  }
+
+  append(v: D[]): AsyncData<D> {
+    const currentData = this.containsData() ? this.internal.getRight() : [];
+    return AsyncData.loaded(currentData.concat(v));
   }
 
   /**

@@ -167,4 +167,35 @@ describe('AsyncData', () => {
       expect(() => ad.singleValue()).to.throw('Testing error');
     });
   });
+
+  describe('.append', () => {
+    it('returns a loaded value, if called on a not asked', () => {
+      const ad = AsyncData.notAsked();
+      expect(ad.isLoaded()).to.be.false;
+
+      const newAd = ad.append([1]);
+      expect(newAd.isLoaded()).to.be.true;
+      expect(newAd.value()).to.deep.equal([1]);
+    });
+
+    it('returns a loaded value, if called on an error', () => {
+      const ad = AsyncData.errored(new Error());
+      expect(ad.isErrored()).to.be.true;
+
+      const newAd = ad.append([1]);
+      expect(newAd.isErrored()).to.be.false;
+      expect(newAd.value()).to.deep.equal([1]);
+    });
+
+    it('returns an updated value', () => {
+      const ad = AsyncData.loaded([1]);
+      expect(ad.isLoaded()).to.be.true;
+      expect(ad.value()).to.deep.equal([1]);
+
+      const newAd = ad.append([2]);
+      expect(newAd.isLoaded()).to.be.true;
+      expect(newAd.value()).to.deep.equal([1,2]);
+    });
+
+  });
 });
