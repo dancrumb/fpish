@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/ohana-pediatrics/ahana-fp/compare/v3.0.2...v3.1.0) (2021-09-09)
+
+
+### Features
+
+* 🎸 add `AsyncData.append` ([d59119f](https://github.com/ohana-pediatrics/ahana-fp/commit/d59119fcce2f5bdb1960f0c1067c4043e9fef128))
+
 ### [3.0.3](https://github.com/ohana-pediatrics/ahana-fp/compare/v3.0.2...v3.0.3) (2021-09-08)
 
 ### [3.0.2](https://github.com/ohana-pediatrics/ahana-fp/compare/v3.0.1...v3.0.2) (2021-09-04)
