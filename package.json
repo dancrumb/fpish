@@ -2,8 +2,8 @@
   "name": "@ahanapediatrics/ahana-fp",
   "version": "3.1.1",
   "description": "FP-friendly classes for Typescript",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "engines": {
     "node": ">=10"
   },
@@ -34,28 +34,28 @@
     "@types/chai": "^4.2.12",
     "@types/chai-as-promised": "^7.1.3",
     "@types/mocha": "^9.0.0",
-    "@types/sinon": "^10.0.0",
+    "@types/sinon": "^10.0.2",
     "@types/sinon-chai": "^3.2.3",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "eslint": "^7.12.0",
-    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "git-cz": "^4.7.1",
-    "mocha": "^9.0.0",
+    "mocha": "^9.1.1",
     "mocha-junit-reporter": "^2.0.0",
     "nyc": "^15.1.0",
     "prettier": "^2.1.2",
-    "sinon": "^11.0.0",
+    "sinon": "^11.1.2",
     "sinon-chai": "^3.4.0",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.2.1",
     "tslint": "^6.1.3",
     "typescript": "^4.0.2"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "config": {
     "commitizen": {

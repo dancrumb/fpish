@@ -5,15 +5,16 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "declaration": true,
-    "outDir": "./lib",
+    "rootDir": "./src/",
+    "outDir": "./dist",
+    "module": "commonjs",
     "moduleResolution": "node",
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "module": "commonjs",
     "target": "es2015",
     "resolveJsonModule": true
   },
-  "include": ["src", "test"],
-  "exclude": ["node_modules", "lib", "coverage"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "coverage"]
 }
