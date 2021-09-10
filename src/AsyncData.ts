@@ -104,7 +104,7 @@ export class AsyncData<D, E = {}> {
     });
   }
 
-  private containsData() {
+  containsData() {
     return this.internal.isRight();
   }
 

@@ -194,8 +194,34 @@ describe('AsyncData', () => {
 
       const newAd = ad.append([2]);
       expect(newAd.isLoaded()).to.be.true;
-      expect(newAd.value()).to.deep.equal([1,2]);
+      expect(newAd.value()).to.deep.equal([1, 2]);
     });
+  });
 
+  describe('.containsData', () => {
+    it('returns false for a not asked value', () => {
+      const ad = AsyncData.notAsked();
+      expect(ad.containsData()).to.be.false;
+    });
+    it('returns false for an error value', () => {
+      const ad = AsyncData.errored(new Error('Dummy'));
+      expect(ad.containsData()).to.be.false;
+    });
+    it('returns false for an initially loading value', () => {
+      const ad = AsyncData.loading();
+      expect(ad.containsData()).to.be.false;
+    });
+    it('returns true for a loaded value', () => {
+      const ad = AsyncData.loaded(['test']);
+      expect(ad.containsData()).to.be.true;
+    });
+    it('returns true for a loaded value that is loading more', () => {
+      const ad = AsyncData.loaded(['test']).loadMore();
+      expect(ad.containsData()).to.be.true;
+    });
+    it('returns false for a loading value that is loading more', () => {
+      const ad = AsyncData.loading().loadMore();
+      expect(ad.containsData()).to.be.false;
+    });
   });
 });
