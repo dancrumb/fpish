@@ -1,5 +1,9 @@
-import {expect} from 'chai';
+import chai, {expect} from 'chai';
 import {Optional} from '../src/Optional';
+import {spy} from 'sinon';
+import sinonChai from 'sinon-chai';
+
+chai.use(sinonChai);
 
 describe('Optional', () => {
   it('represents a value which is possibly set', () => {
@@ -161,5 +165,27 @@ describe('Optional', () => {
     });
 
     it('handles the Ahana use case', () => {});
+  });
+
+  describe('#ifPresent', () => {
+    it('calls a function with the value, if there is one', () => {
+      const fn = spy((v) => {});
+      Optional.of(3).ifPresent(fn);
+      expect(fn).to.have.been.calledWith(3);
+    });
+    it('calls a function with the value, if there is one and not the else function', () => {
+      const fn = spy((v) => {});
+      const elseFn = spy(() => {});
+      Optional.of(3).ifPresent(fn).orElse(elseFn);
+      expect(fn).to.have.been.calledWith(3);
+      expect(elseFn).not.to.have.been.called;
+    });
+    it("calls the else function without a value, if there isn't one", () => {
+      const fn = spy((v) => {});
+      const elseFn = spy(() => {});
+      Optional.empty().ifPresent(fn).orElse(elseFn);
+      expect(fn).not.to.have.been.called;
+      expect(elseFn).to.have.been.called;
+    });
   });
 });
