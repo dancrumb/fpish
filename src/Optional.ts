@@ -113,10 +113,16 @@ export class Optional<T> {
    *
    * @param consumer
    */
-  ifPresent(consumer: (val: T) => void): void {
+  ifPresent(consumer: (val: T) => void): {orElse: (f: () => void) => void} {
     if (haveValue(this.value)) {
       consumer(this.value);
+      return {
+        orElse: () => {},
+      };
     }
+    return {
+      orElse: (f) => f(),
+    };
   }
 
   /**
