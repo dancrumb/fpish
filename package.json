@@ -62,9 +62,6 @@
       "path": "git-cz"
     }
   },
-  "dependencies": {
-    "standard-version": "9.3.2"
-  },
   "nyc": {
     "include": [
       "src/**/*.ts"
