@@ -2,6 +2,7 @@ import chai, {expect} from 'chai';
 import {Optional} from '../src/Optional';
 import {spy} from 'sinon';
 import sinonChai from 'sinon-chai';
+import { NoSuchElementException } from '../src/exceptions/NoSuchElementException';
 
 chai.use(sinonChai);
 
@@ -10,6 +11,13 @@ describe('Optional', () => {
     const data = Optional.of(1);
     expect(data.get()).to.equal(1);
   });
+
+  describe('#get', () => {
+    it('throws an error if the Optional is empty', () => {
+      const data = Optional.empty();
+      expect(()=>data.get()).to.throw(NoSuchElementException);
+    })
+  })
 
   describe('#isPresent', () => {
     it('reports when a value is present in the Optional', () => {
