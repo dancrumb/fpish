@@ -4,10 +4,22 @@ node_js:
   - 15
   - 16
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - |
+    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 \
+    > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+  - "./cc-test-reporter before-build"
 script:
   - npm test
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+deploy:
+  provider: npm
+  email: dancrumb@gmail.com
+  api_key:
+    secure: A4npiINW+z2O2O+jdVGfPMsK2JbNlkoqdBfiqdV/1IudPX+YHy+W1UQlSzFFrmMmLb3Qr31EiaVEDLSY9PHrde6b5geo4+usKpGut9K6CqGSa8UTDCD22/0gMHk6Zw/q6Di8qIE0cEv4XiBKKOrjv77napUABQD3W2xrsS6q/YVY3sh5CeyG2aeNSPlbfKN2tNtEV6RZAZ4Y4rnJOcu/55RUliPhQmrjFTjIunJKa2MN26C7FPDMgSUZecrtkTJ0yosa+UV0S//60M1uXhDrhOsDdX3NUTE4B1CeGTio4SSqNN9F9eqaKBxi7HeGCMj5/xTUKh4KLHcXiG0xy9wW6KZ8GGWxOtV3bg9sQbFrIZ6SGaP0Z7v4kYb9gWqgg2rNq0bk/aRov6QLmRb98X/hjP1hzfMhiY2tA81M8VP7Ei/mYPQ8xk6btGFgn4IGmv43Fij8Lo2qbeQ1fSe/mhywi6MczcpOAkC3arrbaWTWgUU1U352mOeqywEAoWL2KtfFS3NDCuh9kCrm5lVPdVN+PpMSw1o6Uc3ZJxYrAkSXYhCAFtkQkulLpQmDi5BsSMvIWPlMdL5DnfMLS5ODDfKfy6elBE7olRxg/Ep6BMkZqqVjnLL5FE9Yu24ulWyujcDNQ3l5e81zOdDdd0WcCdkfP5tVv7cvOU7T9t5o5Z3Ve0s=
+  on:
+    tags: true
+    repo: dancrumb/fpish
+    branch: main
+  skip_cleanup: "true"
