@@ -5,16 +5,15 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "declaration": true,
-    "rootDir": "./src/",
     "outDir": "./dist",
     "module": "commonjs",
     "moduleResolution": "node",
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es2015",
+    "target": "es2019",
     "resolveJsonModule": true
   },
-  "include": ["src"],
+  "include": [".eslintrc.js", "*.d.ts", "src/**/*", "**/*.spec.*"],
   "exclude": ["node_modules", "dist", "coverage"]
 }

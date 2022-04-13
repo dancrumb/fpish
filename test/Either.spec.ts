@@ -10,19 +10,19 @@ chai.use(chaiAsPromises);
 describe('Either', () => {
   it('maps Optionals correctly (right)', async () => {
     const e = Either.right(1);
-    e.mapRight(d => Optional.of(d)).apply(
+    e.mapRight((d) => Optional.of(d)).apply(
       () => {
         expect.fail();
       },
-      f => {
+      (f) => {
         expect(f).to.equal(1);
       }
     );
   });
   it('maps Optionals correctly (left)', async () => {
     const e = Either.left(1);
-    e.mapLeft(d => Optional.of(d)).apply(
-      f => {
+    e.mapLeft((d) => Optional.of(d)).apply(
+      (f) => {
         expect(f).to.equal(1);
       },
       () => {
@@ -30,26 +30,40 @@ describe('Either', () => {
       }
     );
   });
+  it('maps Optionals correctly (both)', async () => {
+    expect(
+      Either.left(1).map(
+        (d) => Optional.of(d as number * 2),
+        (d) => Optional.of(d as number * 3)
+      )
+    ).to.equal(2);
+    expect(
+      Either.right(1).map(
+        (d) => Optional.of(d as number * 2),
+        (d) => Optional.of(d as number * 3)
+      )
+    ).to.equal(3);
+  });
 
-  describe('.isRight', ()=> {
+  describe('.isRight', () => {
     it('returns true for right values', () => {
       const e = Either.right('test');
       expect(e.isRight()).to.be.true;
-    })
+    });
     it('returns false for left values', () => {
       const e = Either.left('test');
       expect(e.isRight()).to.be.false;
-    })
-  })
+    });
+  });
 
-  describe('.isLeft', ()=> {
+  describe('.isLeft', () => {
     it('returns true for left values', () => {
       const e = Either.left('test');
       expect(e.isLeft()).to.be.true;
-    })
+    });
     it('returns false for right values', () => {
       const e = Either.right('test');
       expect(e.isLeft()).to.be.false;
-    })
-  })
+    });
+  });
 });
