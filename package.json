@@ -1,5 +1,5 @@
 {
-  "name": "@ahanapediatrics/ahana-fp",
+  "name": "fpish",
   "version": "3.4.1",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
