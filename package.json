@@ -1,5 +1,5 @@
 {
-  "name": "@ahana-pediatrics/ahana-fp",
+  "name": "fpish",
   "version": "4.0.0",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
@@ -27,12 +27,9 @@
     "FP",
     "Typescript"
   ],
-  "author": "Dan Rumney <dan.rumney@ahanapediatrics.com>",
+  "author": "Dan Rumney <dancrumb@gmail.com>",
   "license": "MIT",
-  "repository": "git://github.com/ahana-pediatrics/ahana-fp",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
+  "repository": "github:ohana-pediatrics/ahana-fp",
   "devDependencies": {
     "@types/chai": "4.3.0",
     "@types/chai-as-promised": "7.1.5",
