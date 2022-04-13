@@ -9,7 +9,7 @@
   },
   "private": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.production.json",
     "release": "standard-version",
     "prerelease": "npm run prepare",
     "lint": "eslint -c .eslintrc.js --ext .ts src",
