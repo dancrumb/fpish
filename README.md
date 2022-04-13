@@ -1,5 +1,6 @@
-# Ahana FP
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp?ref=badge_shield)
+# FP-ish
+[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B19593%2Fgit%40github.com%3Adancrumb%2Ffpish.git.svg?type=shield)](https://app.fossa.com/projects/custom%2B19593%2Fgit%40github.com%3Adancrumb%2Ffpish.git?ref=badge_shield)
+[![Build Status](https://app.travis-ci.com/dancrumb/fpish.svg?branch=main)](https://app.travis-ci.com/dancrumb/fpish)
 
 
 This package contains a series of "FP-friendly" classes for use in your code.
@@ -24,7 +25,3 @@ If you're able to release new version, you should do:
 npm run release
 git push && git push --tags
 ```
-
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fahana-pediatrics%2Fahana-fp?ref=badge_large)
