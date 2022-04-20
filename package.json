@@ -29,7 +29,10 @@
   ],
   "author": "Dan Rumney <dan.rumney@ahanapediatrics.com>",
   "license": "MIT",
-  "repository": "github:ahanapediatrics/ahana-fp",
+  "repository": "git://github.com/ahanapediatrics/ahana-fp",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@types/chai": "4.3.0",
     "@types/chai-as-promised": "7.1.5",
