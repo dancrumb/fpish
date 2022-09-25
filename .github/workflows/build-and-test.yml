@@ -21,7 +21,7 @@ jobs:
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn test
-      - uses: bradennapier/eslint-plus-action@v3.4.2
+      - uses: bradennapier/eslint-plus-action@master
 
       - name: Code Coverage Summary
         uses: irongut/CodeCoverageSummary@v1.3.0
