@@ -1,5 +1,5 @@
 {
-  "name": "fpish",
+  "name": "@dancrumb/fpish",
   "version": "4.0.0",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
