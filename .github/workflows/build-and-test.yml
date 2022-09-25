@@ -21,6 +21,9 @@ jobs:
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn test
+      - uses: CatChen/eslint-suggestion-action@v2
+        with: 
+          fail-check: true
       - name: Code Coverage Summary
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
