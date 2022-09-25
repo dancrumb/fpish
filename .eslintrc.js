@@ -39,5 +39,8 @@ module.exports = {
     'no-throw-literal': 'error',
     'no-unused-labels': 'error',
     'no-var': 'error',
+    'prettier/prettier': 'error',
+    'arrow-body-style': 'off',
+    'prefer-arrow-callback': 'off',
   },
 };

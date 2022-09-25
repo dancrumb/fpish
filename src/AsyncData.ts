@@ -134,14 +134,14 @@ export class AsyncData<D, E = {}> {
   /**
    * Check whether any data has loaded (or that the request has failed)
    */
-   isLoaded() {
+  isLoaded() {
     return this.is(RemoteDataStatus.Succeeded) || this.is(RemoteDataStatus.Failed);
   }
 
   /**
    * Check whether the data errored out
    */
-   isErrored() {
+  isErrored() {
     return this.is(RemoteDataStatus.Failed);
   }
 

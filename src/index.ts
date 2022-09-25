@@ -14,11 +14,16 @@ export * from './partial';
  *
  * @param f
  */
-export const makeOptional = <T>(f: (o: T) => unknown) => (v: Optional<T>) => f(v.get());
+export const makeOptional =
+  <T>(f: (o: T) => unknown) =>
+  (v: Optional<T>) =>
+    f(v.get());
 
 /**
  * Take a function that requires a value of `Optional<T>` and return a version that takes `T`
  * @param f
  */
-export const makeNonOptional = <T>(f: (o: Optional<T>) => unknown) => (v: T) =>
-  f(Optional.of(v));
+export const makeNonOptional =
+  <T>(f: (o: Optional<T>) => unknown) =>
+  (v: T) =>
+    f(Optional.of(v));

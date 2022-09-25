@@ -1,4 +1,4 @@
-import { AsyncData } from '../src/AsyncData';
+import {AsyncData} from '../src/AsyncData';
 
 describe('AsyncData', () => {
   it('represents a remotely loaded piece of data', () => {
@@ -13,8 +13,8 @@ describe('AsyncData', () => {
     });
     it('handles loading data', () => {
       const data = AsyncData.loading<number>();
-      expect(data.map(x => x + 1).isLoading()).toBe(true);
-    })
+      expect(data.map((x) => x + 1).isLoading()).toBe(true);
+    });
   });
 
   describe('.mapValue', () => {
@@ -24,8 +24,8 @@ describe('AsyncData', () => {
     });
     it('throws an error if data is not loaded', () => {
       const data = AsyncData.loading<number>();
-      expect(() => data.mapValue(x => x + 1)).toThrowError();
-    })
+      expect(() => data.mapValue((x) => x + 1)).toThrowError();
+    });
   });
 
   describe('.filter', () => {
@@ -35,8 +35,8 @@ describe('AsyncData', () => {
     });
     it('handles loading data', () => {
       const data = AsyncData.loading<number>();
-      expect(data.filter(x => true).isLoading()).toBe(true);
-    })
+      expect(data.filter((x) => true).isLoading()).toBe(true);
+    });
   });
 
   describe('.reduce', () => {
@@ -93,50 +93,38 @@ describe('AsyncData', () => {
   });
 
   describe('.getOptional', () => {
-    it(
-      'can be converted to an empty Optional when no request has been made',
-      async () => {
-        const async = AsyncData.notAsked<{}>();
-        expect(async.getOptional().isPresent()).toBe(false);
-      }
-    );
+    it('can be converted to an empty Optional when no request has been made', async () => {
+      const async = AsyncData.notAsked<{}>();
+      expect(async.getOptional().isPresent()).toBe(false);
+    });
 
-    it(
-      'can be converted to an empty Optional when a request has been made',
-      async () => {
-        const async = AsyncData.loading<{}>();
-        expect(async.getOptional().isPresent()).toBe(false);
-      }
-    );
+    it('can be converted to an empty Optional when a request has been made', async () => {
+      const async = AsyncData.loading<{}>();
+      expect(async.getOptional().isPresent()).toBe(false);
+    });
 
     it('can be converted to an Optional if there is data', async () => {
       const async = AsyncData.loaded<string>(['test']);
       expect(async.getOptional().get()).toBe('test');
     });
 
-    it(
-      'can be converted to an Optional when a second request has been made',
-      async () => {
-        const async = AsyncData.loaded<string>(['test']);
-        expect(async.getOptional().isPresent()).toBe(true);
-        const reload = async.loadMore();
-        expect(reload.getOptional().get()).toBe('test');
-        expect;
-      }
-    );
+    it('can be converted to an Optional when a second request has been made', async () => {
+      const async = AsyncData.loaded<string>(['test']);
+      expect(async.getOptional().isPresent()).toBe(true);
+      const reload = async.loadMore();
+      expect(reload.getOptional().get()).toBe('test');
+      expect;
+    });
 
     it('can be converted to an Optional array if there is data', async () => {
       const async = AsyncData.loaded<string>(['test']);
       expect(async.getAllOptional().get()).toEqual(['test']);
     });
 
-    it(
-      'can be converted to an empty Optional if there is an error',
-      async () => {
-        const async = AsyncData.errored(new Error('Oh dear'));
-        expect(async.getOptional().isPresent()).toBe(false);
-      }
-    );
+    it('can be converted to an empty Optional if there is an error', async () => {
+      const async = AsyncData.errored(new Error('Oh dear'));
+      expect(async.getOptional().isPresent()).toBe(false);
+    });
   });
 
   describe('.orElse', () => {
@@ -167,17 +155,18 @@ describe('AsyncData', () => {
     });
     it('throws an error if data is not loaded', () => {
       const ad = AsyncData.loading();
-      expect(() => ad.value()).toThrowError('Trying to access AsyncData before it has data');
+      expect(() => ad.value()).toThrowError(
+        'Trying to access AsyncData before it has data'
+      );
     });
 
-    it(
-      'does not throw an error if data is loaded, even if in loading state',
-      () => {
-        const ad = AsyncData.loaded([1, 2, 3]).loadMore();
-        expect(ad.isLoading()).toBe(true);
-        expect(() => ad.value()).not.toThrowError('Trying to access AsyncData before it has data');
-      }
-    );
+    it('does not throw an error if data is loaded, even if in loading state', () => {
+      const ad = AsyncData.loaded([1, 2, 3]).loadMore();
+      expect(ad.isLoading()).toBe(true);
+      expect(() => ad.value()).not.toThrowError(
+        'Trying to access AsyncData before it has data'
+      );
+    });
 
     it('throws an error if data load failed', () => {
       const ad = AsyncData.errored(new Error('Testing error'));
@@ -197,7 +186,9 @@ describe('AsyncData', () => {
     });
     it('throws an error if data is not loaded', () => {
       const ad = AsyncData.loading();
-      expect(() => ad.singleValue()).toThrowError('Trying to access AsyncData before it has data');
+      expect(() => ad.singleValue()).toThrowError(
+        'Trying to access AsyncData before it has data'
+      );
     });
 
     it('throws an error if data load failed', () => {
@@ -250,7 +241,7 @@ describe('AsyncData', () => {
       const data = AsyncData.loaded([1, 2, 3]);
       expect(() => data.update(-1, 4)).toThrowError();
     });
-  })
+  });
 
   describe('.containsData', () => {
     it('returns false for a not asked value', () => {
@@ -282,13 +273,13 @@ describe('AsyncData', () => {
   describe('.find', () => {
     it('returns undefined if the sought element is not present', () => {
       const data = AsyncData.loaded([1, 2, 3]);
-      const item = data.find(elem => elem === 4);
+      const item = data.find((elem) => elem === 4);
       expect(item).toBeUndefined();
     });
 
     it('returns undefined if no data is loaded', () => {
       const data = AsyncData.notAsked();
-      const item = data.find(elem => elem === 4);
+      const item = data.find((elem) => elem === 4);
       expect(item).toBeUndefined();
     });
   });
@@ -297,6 +288,6 @@ describe('AsyncData', () => {
     it('returns true if an empty array is loaded', () => {
       const arr = AsyncData.loaded([]);
       expect(arr.isEmpty()).toBe(true);
-    })
-  })
+    });
+  });
 });
