@@ -1,4 +1,5 @@
 import {expect} from 'chai';
+import { describe } from 'mocha';
 import {AsyncData} from '../src/AsyncData';
 
 describe('AsyncData', () => {
@@ -224,4 +225,18 @@ describe('AsyncData', () => {
       expect(ad.containsData()).to.be.false;
     });
   });
+
+  describe('.find',() => {
+    it('returns undefined if the sought element is not present', () => {
+      const data = AsyncData.loaded([1,2,3]);
+      const item = data.find(elem => elem === 4);
+      expect(item).to.be.undefined;
+    });
+
+    it('returns undefined if no data is loaded', () => {
+      const data = AsyncData.notAsked();
+      const item = data.find(elem => elem === 4);
+      expect(item).to.be.undefined;
+    });
+  })
 });
