@@ -1,59 +1,58 @@
-import {describe, expect} from '@jest/globals';
+import {describe, expect, jest} from '@jest/globals';
 import {Optional} from '../src/Optional';
-import {spy} from 'sinon';
 import { NoSuchElementException } from '../src/exceptions/NoSuchElementException';
 
 
 describe('Optional', () => {
   it('represents a value which is possibly set', () => {
     const data = Optional.of(1);
-    expect(data.get()).to.equal(1);
+    expect(data.get()).toBe(1);
   });
 
   describe('#get', () => {
     it('throws an error if the Optional is empty', () => {
       const data = Optional.empty();
-      expect(()=>data.get()).to.throw(NoSuchElementException);
+      expect(()=>data.get()).toThrowError(NoSuchElementException);
     })
   })
 
   describe('#isPresent', () => {
     it('reports when a value is present in the Optional', () => {
       const data = Optional.of(1);
-      expect(data.isPresent()).to.be.true;
+      expect(data.isPresent()).toBe(true);
     });
     it('reports when a value is not present in the Optional', () => {
       const data = Optional.empty();
-      expect(data.isPresent()).to.be.false;
+      expect(data.isPresent()).toBe(false);
     });
   });
   describe('#orElse', () => {
     it('returns the internal value if set', () =>
-      expect(Optional.of(2).orElse(3)).to.equal(2));
+      expect(Optional.of(2).orElse(3)).toBe(2));
     it('returns the orElse value if not set', () =>
-      expect(Optional.empty().orElse(3)).to.equal(3));
+      expect(Optional.empty().orElse(3)).toBe(3));
   });
   describe('#orNothing', () => {
     it('returns the internal value if set', () =>
-      expect(Optional.of(2).orNothing()).to.equal(2));
+      expect(Optional.of(2).orNothing()).toBe(2));
     it('returns undefined value if not set', () =>
-      expect(Optional.empty().orNothing()).to.be.undefined);
+      expect(Optional.empty().orNothing()).toBeUndefined());
   });
   describe('#orNull', () => {
     it('returns the internal value if set', () =>
-      expect(Optional.of(2).orNull()).to.equal(2));
+      expect(Optional.of(2).orNull()).toBe(2));
     it('returns null value if not set', () =>
-      expect(Optional.empty().orNull()).to.be.null);
+      expect(Optional.empty().orNull()).toBeNull());
   });
   describe('#equals', () => {
     it('compares two Optionals with identical values as equal', () => {
-      expect(Optional.of(1).equals(Optional.of(1))).to.be.true;
+      expect(Optional.of(1).equals(Optional.of(1))).toBe(true);
     });
     it('compares two Optionals with different values as not equal', () => {
-      expect(Optional.of(1).equals(Optional.of(2))).to.be.false;
+      expect(Optional.of(1).equals(Optional.of(2))).toBe(false);
     });
     it('compares two empty Optionals as not equal', () => {
-      expect(Optional.empty().equals(Optional.empty())).to.be.false;
+      expect(Optional.empty().equals(Optional.empty())).toBe(false);
     });
     it('compares two Optionals with identical complex values as equal', () => {
       expect(
@@ -61,7 +60,7 @@ describe('Optional', () => {
           Optional.of({id: 1, age: 4}),
           (a, b) => a.id === b.id
         )
-      ).to.be.true;
+      ).toBe(true);
     });
   });
   describe('#map', () => {
@@ -70,21 +69,21 @@ describe('Optional', () => {
         Optional.of(1)
           .map((x) => x + 3)
           .get()
-      ).to.equal(4);
+      ).toBe(4);
     });
     it('maps while squashing internal Optionals', () => {
       expect(
         Optional.of(1)
           .map((x) => Optional.of(x + 3))
           .get()
-      ).to.equal(4);
+      ).toBe(4);
     });
     it('maps empty to empty', () => {
       expect(
         Optional.empty()
           .map((x) => x)
           .isPresent()
-      ).to.be.false;
+      ).toBe(false);
     });
   });
   describe('#filter', () => {
@@ -93,51 +92,51 @@ describe('Optional', () => {
         Optional.of(2)
           .filter((x) => x === 2)
           .get()
-      ).to.equal(2);
+      ).toBe(2);
     });
     it('filters an Optional to empty if the filter does not match', () => {
       expect(
         Optional.of(2)
           .filter((x) => x !== 2)
           .isPresent()
-      ).to.be.false;
+      ).toBe(false);
     });
     it('filters empty to empty', () => {
       expect(
         Optional.empty()
           .filter((x) => true)
           .isPresent()
-      ).to.be.false;
+      ).toBe(false);
     });
   });
   describe('#toJSON', () => {
     it('returns undefined when JSON stringified', () => {
       const data = Optional.empty();
-      expect(JSON.stringify(data)).to.be.undefined;
-      expect(JSON.stringify({data})).to.equal('{}');
+      expect(JSON.stringify(data)).toBeUndefined();
+      expect(JSON.stringify({data})).toBe('{}');
     });
     it('returns correct JSON  stringified', () => {
-      expect(JSON.stringify(Optional.of(1))).to.equal('1');
-      expect(JSON.stringify(Optional.of(true))).to.equal('true');
-      expect(JSON.stringify(Optional.of('test'))).to.equal('"test"');
-      expect(JSON.stringify(Optional.of(null))).to.equal(undefined);
-      expect(JSON.stringify(Optional.of({}))).to.equal('{}');
+      expect(JSON.stringify(Optional.of(1))).toBe('1');
+      expect(JSON.stringify(Optional.of(true))).toBe('true');
+      expect(JSON.stringify(Optional.of('test'))).toBe('"test"');
+      expect(JSON.stringify(Optional.of(null))).toBeUndefined();
+      expect(JSON.stringify(Optional.of({}))).toBe('{}');
     });
     it('handles nested optionals when stringified', () => {
       expect(
         JSON.stringify(
           Optional.of({
-            a: Optional.empty(),
+            a: Optional.empty,
           })
         )
-      ).to.equal('{}');
+      ).toBe('{}');
       expect(
         JSON.stringify(
           Optional.of({
             a: Optional.of(1),
           })
         )
-      ).to.equal('{"a":1}');
+      ).toBe('{"a":1}');
     });
   });
 
@@ -153,21 +152,21 @@ describe('Optional', () => {
         b: 'bee',
       });
     it('returns the enclosed property', () => {
-      expect(getOptional().property('a')).to.equal(1);
-      expect(getOptional().property('b')).to.equal('bee');
+      expect(getOptional().property('a')).toBe(1);
+      expect(getOptional().property('b')).toBe('bee');
     });
     it('returns undefined if no default provided', () => {
-      expect(Optional.empty<Opt>().property('a')).to.be.undefined;
+      expect(Optional.empty<{a:number}>().property('a')).toBeUndefined();
     });
     it('returns the default value for an empty', () => {
-      expect(Optional.empty<Opt>().property('a', 9)).to.equal(9);
+      expect(Optional.empty<{a:number}>().property('a', 9)).toBe(9);
     });
     it('returns handles falsy defaults', () => {
-      expect(Optional.empty<Opt>().property('a', 0)).to.equal(0);
+      expect(Optional.empty<{a:number}>().property('a', 0)).toBe(0);
     });
     it('returns the default value for an undefined', () => {
-      expect(Optional.of(getOptional()).property('c', 'test')).to.equal('test');
-      expect(Optional.of<Opt>(undefined).property('c', '')).to.equal('');
+      expect(Optional.of(getOptional()).property('c', 'test')).toBe('test');
+      expect(Optional.of<Opt>(undefined).property('c', '')).toBe('');
     });
 
     it('handles the Ahana use case', () => {});
@@ -175,26 +174,26 @@ describe('Optional', () => {
 
   describe('#ifPresent', () => {
     it('calls a function with the value, if there is one', () => {
-      const fn = spy((v) => {});
+      const fn = jest.fn();
       Optional.of(3).ifPresent(fn);
-      expect(fn).to.have.been.calledWith(3);
+      expect(fn).toBeCalledWith(3);
     });
     it(
       'calls a function with the value, if there is one and not the else function',
       () => {
-        const fn = spy((v) => {});
-        const elseFn = spy(() => {});
+        const fn = jest.fn((v) => {});
+        const elseFn = jest.fn(() => {});
         Optional.of(3).ifPresent(fn).orElse(elseFn);
-        expect(fn).to.have.been.calledWith(3);
-        expect(elseFn).not.to.have.been.called;
+        expect(fn).toBeCalledWith(3);
+        expect(elseFn).not.toBeCalled();
       }
     );
     it("calls the else function without a value, if there isn't one", () => {
-      const fn = spy((v) => {});
-      const elseFn = spy(() => {});
+      const fn = jest.fn((v) => {});
+      const elseFn = jest.fn(() => {});
       Optional.empty().ifPresent(fn).orElse(elseFn);
-      expect(fn).not.to.have.been.called;
-      expect(elseFn).to.have.been.called;
+      expect(fn).not.toBeCalled();
+      expect(elseFn).toBeCalled();
     });
   });
 });

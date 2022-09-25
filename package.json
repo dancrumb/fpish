@@ -77,15 +77,5 @@
     ],
     "sourceMap": true,
     "instrument": true
-  },
-  "mocha": {
-    "require": [
-      "ts-node/register"
-    ],
-    "reporter": "mocha-junit-reporter",
-    "reporter-options": "mochaFile=./reports/npm-test.xml",
-    "extension": [
-      "ts"
-    ]
   }
 }

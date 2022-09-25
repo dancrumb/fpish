@@ -248,5 +248,12 @@ describe('AsyncData', () => {
       const item = data.find(elem => elem === 4);
       expect(item).toBeUndefined();
     });
+  });
+
+  describe('.isEmpty', () => {
+    it('returns true if an empty array is loaded', () => {
+      const arr = AsyncData.loaded([]);
+      expect(arr.isEmpty()).toBe(true);
+    })
   })
 });
