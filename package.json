@@ -29,7 +29,7 @@
   ],
   "author": "Dan Rumney <dancrumb@gmail.com>",
   "license": "MIT",
-  "repository": "github:ohana-pediatrics/ahana-fp",
+  "repository": "github:dancrumb/fpish",
   "devDependencies": {
     "@types/chai": "4.3.3",
     "@types/chai-as-promised": "7.1.5",
@@ -60,23 +60,5 @@
     "commitizen": {
       "path": "git-cz"
     }
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "reporter": [
-      "text-summary",
-      "html",
-      "lcov"
-    ],
-    "sourceMap": true,
-    "instrument": true
   }
 }
