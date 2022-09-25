@@ -1,4 +1,4 @@
-import chai, {expect} from 'chai';
+import {describe, expect} from '@jest/globals';
 import chaiAsPromises from 'chai-as-promised';
 import sinonChai from 'sinon-chai';
 import {Either} from '../src/Either';

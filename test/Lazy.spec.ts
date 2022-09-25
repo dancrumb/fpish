@@ -1,10 +1,8 @@
-import chai, {expect} from 'chai';
+import {describe, expect} from '@jest/globals';
 import {spy} from 'sinon';
-import sinonChai from "sinon-chai";
 import chaiAsPromises from 'chai-as-promised';
 import {Lazy} from '../src/Lazy';
 
-chai.use(sinonChai);
 chai.use(chaiAsPromises);
 
 describe('Lazy', () => {
@@ -14,7 +12,7 @@ describe('Lazy', () => {
     await expect(data.getValue()).to.eventually.equal(1);
   });
 
-  it('calls the intializer once',async () => {
+  it('calls the intializer once', async () => {
     const intializer =  spy(()=>42);
     const data = Lazy.create(intializer);
     expect(intializer).not.to.have.been.called
