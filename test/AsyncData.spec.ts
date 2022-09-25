@@ -1,21 +1,49 @@
-import {AsyncData} from '../src/AsyncData';
+import { AsyncData } from '../src/AsyncData';
 
 describe('AsyncData', () => {
   it('represents a remotely loaded piece of data', () => {
     const data = AsyncData.loaded([1, 2, 3, 4]);
     expect(data.value()).toEqual([1, 2, 3, 4]);
   });
-  it('can map data', () => {
-    const data = AsyncData.loaded([1, 2, 3, 4]);
-    expect(data.map((x) => 2 * x).value()).toEqual([2, 4, 6, 8]);
+
+  describe('.map', () => {
+    it('can map data', () => {
+      const data = AsyncData.loaded([1, 2, 3, 4]);
+      expect(data.map((x) => 2 * x).value()).toEqual([2, 4, 6, 8]);
+    });
+    it('handles loading data', () => {
+      const data = AsyncData.loading<number>();
+      expect(data.map(x => x + 1).isLoading()).toBe(true);
+    })
   });
-  it('can filter data', () => {
-    const data = AsyncData.loaded([1, 2, 3, 4]);
-    expect(data.filter((x) => x % 2 === 0).value()).toEqual([2, 4]);
+
+  describe('.mapValue', () => {
+    it('can map data', () => {
+      const data = AsyncData.loaded([1, 2, 3, 4]);
+      expect(data.mapValue((x) => 2 * x)).toEqual([2, 4, 6, 8]);
+    });
+    it('throws an error if data is not loaded', () => {
+      const data = AsyncData.loading<number>();
+      expect(() => data.mapValue(x => x + 1)).toThrowError();
+    })
   });
-  it('can reduce data', () => {
-    const data = AsyncData.loaded([1, 2, 3, 4]);
-    expect(data.reduce((a, x) => a + x, 0).value()).toEqual([10]);
+
+  describe('.filter', () => {
+    it('can filter data', () => {
+      const data = AsyncData.loaded([1, 2, 3, 4]);
+      expect(data.filter((x) => x % 2 === 0).value()).toEqual([2, 4]);
+    });
+    it('handles loading data', () => {
+      const data = AsyncData.loading<number>();
+      expect(data.filter(x => true).isLoading()).toBe(true);
+    })
+  });
+
+  describe('.reduce', () => {
+    it('can reduce data', () => {
+      const data = AsyncData.loaded([1, 2, 3, 4]);
+      expect(data.reduce((a, x) => a + x, 0).value()).toEqual([10]);
+    });
   });
 
   describe('.isAsked', () => {
@@ -208,6 +236,22 @@ describe('AsyncData', () => {
     });
   });
 
+  describe('.update', () => {
+    it('updates the array at the index provided', () => {
+      const data = AsyncData.loaded([1, 2, 3]);
+      expect(data.update(1, 4).value()).toStrictEqual([1, 4, 3]);
+    });
+
+    it('throws an error if the index is too high', () => {
+      const data = AsyncData.loaded([1, 2, 3]);
+      expect(() => data.update(4, 4)).toThrowError();
+    });
+    it('throws an error if the index is too low', () => {
+      const data = AsyncData.loaded([1, 2, 3]);
+      expect(() => data.update(-1, 4)).toThrowError();
+    });
+  })
+
   describe('.containsData', () => {
     it('returns false for a not asked value', () => {
       const ad = AsyncData.notAsked();
@@ -235,9 +279,9 @@ describe('AsyncData', () => {
     });
   });
 
-  describe('.find',() => {
+  describe('.find', () => {
     it('returns undefined if the sought element is not present', () => {
-      const data = AsyncData.loaded([1,2,3]);
+      const data = AsyncData.loaded([1, 2, 3]);
       const item = data.find(elem => elem === 4);
       expect(item).toBeUndefined();
     });

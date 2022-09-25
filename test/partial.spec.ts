@@ -35,6 +35,6 @@ describe('partialRight', () => {
     it('supports complete application with multiple applied args', () => {
         const add = (a: number, b: number) => a + b;
         const is5 = partialRight(add, 2,3);
-        expect(is5()).toBe(5);
+        expect(is5()).toBe(5); 
     })
 });
