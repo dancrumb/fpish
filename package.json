@@ -17,8 +17,8 @@
     "prettier:cli": "prettier \"src/**/*.ts\"",
     "prettier:check": "yarn run prettier:cli -- -l",
     "prettier:fix": "yarn run prettier:cli -- --write",
-    "prepare": "yarn run build",
-    "prepublishOnly": "yarn run lint",
+    "prepack": "yarn run build",
+    "prepublish": "yarn run lint",
     "preversion": "yarn run lint",
     "test": "jest"
   },

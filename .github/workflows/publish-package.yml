@@ -16,4 +16,4 @@ jobs:
       - run: yarn
       - run: yarn npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
