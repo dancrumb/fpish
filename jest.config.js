@@ -5,5 +5,10 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/*.ts'
+  ],
+  "coverageReporters": [
+    "html",
+    "lcov",
+    "cobertura"
   ]
 };
