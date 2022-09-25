@@ -7,7 +7,6 @@
   "engines": {
     "node": ">=14.17.0"
   },
-  "private": false,
   "scripts": {
     "build": "tsc -p tsconfig.production.json",
     "release": "standard-version",
@@ -60,5 +59,9 @@
     "commitizen": {
       "path": "git-cz"
     }
-  }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "packageManager": "yarn@3.2.3"
 }
