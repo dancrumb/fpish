@@ -1,4 +1,3 @@
-import {describe, expect} from '@jest/globals';
 import {partial, partialRight} from '../src';
 
 describe('partial', () => {

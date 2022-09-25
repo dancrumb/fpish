@@ -1,4 +1,3 @@
-import {describe, expect} from '@jest/globals';
 import {Either} from '../src/Either';
 import {Optional} from '../src/Optional';
 

@@ -1,4 +1,3 @@
-import {describe, expect, jest} from '@jest/globals';
 import {Optional} from '../src/Optional';
 import { NoSuchElementException } from '../src/exceptions/NoSuchElementException';
 
