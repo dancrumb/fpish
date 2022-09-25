@@ -6,6 +6,7 @@ node_modules
 /reports
 .DS_Store
 
+.pnp.*
 .yarn/*
 !.yarn/cache
 !.yarn/patches
