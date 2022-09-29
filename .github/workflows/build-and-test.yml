@@ -38,7 +38,7 @@ jobs:
         with:
           filename: 'coverage/cobertura-coverage.xml'
           fail_below_min: true
-          thresholds: '50 75'
+          thresholds: '70 80'
           badge: true
           format: markdown
           hide_branch_rate: false
