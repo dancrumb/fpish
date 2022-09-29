@@ -5,6 +5,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v3
       # Setup .npmrc file to publish to npm
@@ -14,6 +17,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@dancrumb'
       - run: yarn
-      - run: yarn npm publish
+      - run: yarn npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
