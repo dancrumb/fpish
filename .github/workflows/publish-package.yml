@@ -17,6 +17,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@dancrumb'
       - run: yarn
-      - run: yarn npm publish --access=public
+      - run: npm publish
         env:
           YARN_NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

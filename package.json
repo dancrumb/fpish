@@ -1,6 +1,6 @@
 {
   "name": "@dancrumb/fpish",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -61,7 +61,9 @@
     }
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com",
+    "access": "public",
+    "main": "dist/index.js"
   },
   "packageManager": "yarn@3.2.3"
 }
