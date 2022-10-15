@@ -12,7 +12,8 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "target": "es2019",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["jest", "node"]
   },
   "include": [".eslintrc.js", "*.d.ts", "src/**/*", "**/*.spec.*"],
   "exclude": ["node_modules", "dist", "coverage"]
