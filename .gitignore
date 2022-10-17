@@ -1,12 +1,10 @@
 node_modules
 /dist
-/.vscode
 /.nyc_output
 /coverage
 /reports
 .DS_Store
 
-.pnp.*
 .yarn/*
 !.yarn/cache
 !.yarn/patches
