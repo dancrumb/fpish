@@ -9,7 +9,6 @@
   },
   "scripts": {
     "build": "yarn run tsc -p tsconfig.production.json",
-    "release": "yarn run standard-version",
     "prerelease": "yarn run prepare",
     "lint": "yarn run eslint -c .eslintrc.js --ext .ts src",
     "lint:ci": "yarn run eslint -c .eslintrc.js --ext .ts --format junit --output-file ./reports/eslint.xml src",
@@ -32,6 +31,7 @@
   "devDependencies": {
     "@jest/globals": "^29.2.0",
     "@types/jest": "^29.1.2",
+    "@types/node": "^18.11.0",
     "@types/sinon": "10.0.13",
     "@typescript-eslint/eslint-plugin": "5.40.0",
     "@typescript-eslint/parser": "5.40.0",
@@ -61,6 +61,6 @@
   },
   "packageManager": "yarn@3.2.4",
   "dependencies": {
-    "@types/node": "^18.11.0"
+    
   }
 }
