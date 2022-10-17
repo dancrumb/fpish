@@ -1,6 +1,7 @@
+import {expect} from '@jest/globals';
+
 import {Either} from '../src/Either';
 import {Optional} from '../src/Optional';
-
 
 describe('Either', () => {
   it('maps Optionals correctly (right)', async () => {
@@ -28,14 +29,14 @@ describe('Either', () => {
   it('maps Optionals correctly (both)', async () => {
     expect(
       Either.left(1).map(
-        (d) => Optional.of(d as number * 2),
-        (d) => Optional.of(d as number * 3)
+        (d) => Optional.of((d as number) * 2),
+        (d) => Optional.of((d as number) * 3)
       )
     ).toBe(2);
     expect(
       Either.right(1).map(
-        (d) => Optional.of(d as number * 2),
-        (d) => Optional.of(d as number * 3)
+        (d) => Optional.of((d as number) * 2),
+        (d) => Optional.of((d as number) * 3)
       )
     ).toBe(3);
   });

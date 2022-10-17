@@ -1,3 +1,4 @@
+import {expect} from '@jest/globals';
 import {AsyncData} from '../src/AsyncData';
 
 describe('AsyncData', () => {

@@ -1,6 +1,7 @@
-import {Optional} from '../src/Optional';
-import { NoSuchElementException } from '../src/exceptions/NoSuchElementException';
+import {expect} from '@jest/globals';
 
+import {Optional} from '../src/Optional';
+import {NoSuchElementException} from '../src/exceptions/NoSuchElementException';
 
 describe('Optional', () => {
   it('represents a value which is possibly set', () => {
@@ -11,9 +12,9 @@ describe('Optional', () => {
   describe('#get', () => {
     it('throws an error if the Optional is empty', () => {
       const data = Optional.empty();
-      expect(()=>data.get()).toThrowError(NoSuchElementException);
-    })
-  })
+      expect(() => data.get()).toThrowError(NoSuchElementException);
+    });
+  });
 
   describe('#isPresent', () => {
     it('reports when a value is present in the Optional', () => {
@@ -155,13 +156,13 @@ describe('Optional', () => {
       expect(getOptional().property('b')).toBe('bee');
     });
     it('returns undefined if no default provided', () => {
-      expect(Optional.empty<{a:number}>().property('a')).toBeUndefined();
+      expect(Optional.empty<{a: number}>().property('a')).toBeUndefined();
     });
     it('returns the default value for an empty', () => {
-      expect(Optional.empty<{a:number}>().property('a', 9)).toBe(9);
+      expect(Optional.empty<{a: number}>().property('a', 9)).toBe(9);
     });
     it('returns handles falsy defaults', () => {
-      expect(Optional.empty<{a:number}>().property('a', 0)).toBe(0);
+      expect(Optional.empty<{a: number}>().property('a', 0)).toBe(0);
     });
     it('returns the default value for an undefined', () => {
       expect(Optional.of(getOptional()).property('c', 'test')).toBe('test');
@@ -177,16 +178,13 @@ describe('Optional', () => {
       Optional.of(3).ifPresent(fn);
       expect(fn).toBeCalledWith(3);
     });
-    it(
-      'calls a function with the value, if there is one and not the else function',
-      () => {
-        const fn = jest.fn((v) => {});
-        const elseFn = jest.fn(() => {});
-        Optional.of(3).ifPresent(fn).orElse(elseFn);
-        expect(fn).toBeCalledWith(3);
-        expect(elseFn).not.toBeCalled();
-      }
-    );
+    it('calls a function with the value, if there is one and not the else function', () => {
+      const fn = jest.fn((v) => {});
+      const elseFn = jest.fn(() => {});
+      Optional.of(3).ifPresent(fn).orElse(elseFn);
+      expect(fn).toBeCalledWith(3);
+      expect(elseFn).not.toBeCalled();
+    });
     it("calls the else function without a value, if there isn't one", () => {
       const fn = jest.fn((v) => {});
       const elseFn = jest.fn(() => {});
