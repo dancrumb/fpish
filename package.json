@@ -1,6 +1,6 @@
 {
   "name": "@dancrumb/fpish",
-  "version": "5.0.8",
+  "version": "5.1.0",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -60,7 +60,5 @@
     "main": "dist/index.js"
   },
   "packageManager": "yarn@3.2.4",
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }
