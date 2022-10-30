@@ -31,37 +31,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn install --immutable
-      - run: yarn test
+      - name: Code Climate Coverage Action
+        uses: paambaati/codeclimate-action@v3.2.0
+        env:
+          CC_TEST_REPORTER_ID: 8bf4f6af2df4cd6931d507a0e5278ce7505d4a24f3a605d9b07b74f760c3017b
+        with:
+          coverageCommand: yarn run test
+          coverageLocations: |
+            ${{github.workspace}}/coverage/*.lcov:lcov
 
-      - name: Code Coverage Summary
-        uses: irongut/CodeCoverageSummary@v1.3.0
-        with:
-          filename: 'coverage/cobertura-coverage.xml'
-          fail_below_min: true
-          thresholds: '70 80'
-          badge: true
-          format: markdown
-          hide_branch_rate: false
-          hide_complexity: true
-          indicators: true
-          output: both
-      - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: github.event_name == 'pull_request'
-        with:
-          recreate: true
-          path: code-coverage-results.md
-  build:
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-      - run: yarn install --immutable
-      - run: yarn run build
