@@ -4,9 +4,20 @@ import {Optional} from '../src/Optional';
 import {NoSuchElementException} from '../src/exceptions/NoSuchElementException';
 
 describe('Optional', () => {
-  it('represents a value which is possibly set', () => {
-    const data = Optional.of(1);
-    expect(data.get()).toBe(1);
+  describe('#of', () => {
+    it('can be created by being passed an Optional', () => {
+      const opt = Optional.of(Optional.of(42));
+      expect(opt.get()).toEqual(42);
+    });
+
+    it('represents a value which is possibly set', () => {
+      const data = Optional.of(1);
+      expect(data.get()).toBe(1);
+    });
+
+    it('returns an empty Optional if passed null', () => {
+      expect(Optional.of(null).isPresent()).toBe(false);
+    });
   });
 
   describe('#get', () => {

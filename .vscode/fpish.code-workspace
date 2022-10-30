@@ -12,6 +12,10 @@
       "**/.yarn": true,
       "**/.pnp.*": true
     },
-    "jest.jestCommandLine": "yarn test"
+    "jest.jestCommandLine": "yarn test",
+    "jest.autoRun": {"watch": true, "onStartup": ["all-tests"]},
+    "jest.showCoverageOnLoad": true,
+    "jest.coverageFormatter": "DefaultFormatter",
+    "jest.debugCodeLens.showWhenTestStateIn": ["pass", "fail", "unknown"]
   }
 }

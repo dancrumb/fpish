@@ -11,13 +11,9 @@ const haveValue = <T>(value: T | undefined): value is T => typeof value !== 'und
 export class Optional<T> {
   private readonly value: T | undefined;
 
-  private constructor(val?: T | Optional<T> | null) {
+  private constructor(val?: T | null) {
     if (val !== null) {
-      if (val instanceof Optional) {
-        this.value = val.get();
-      } else {
-        this.value = val;
-      }
+      this.value = val;
     }
   }
 

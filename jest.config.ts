@@ -10,7 +10,7 @@ const jestConfig: JestConfigWithTsJest = {
     ...tsjPreset.transform,
   },
   collectCoverage: true,
-  collectCoverageFrom: ['src/*.ts'],
+  collectCoverageFrom: ['**/src/*.ts'],
   coverageReporters: ['html', 'lcov', 'cobertura'],
 };
 
