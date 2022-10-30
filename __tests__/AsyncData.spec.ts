@@ -45,6 +45,14 @@ describe('AsyncData', () => {
       const data = AsyncData.loaded([1, 2, 3, 4]);
       expect(data.reduce((a, x) => a + x, 0).value()).toEqual([10]);
     });
+
+    it('returns the original value if it is not lodaed', () => {
+      expect(
+        AsyncData.notAsked()
+          .reduce(() => {}, undefined)
+          .isLoaded()
+      ).toBe(false);
+    });
   });
 
   describe('.isAsked', () => {
@@ -289,6 +297,108 @@ describe('AsyncData', () => {
     it('returns true if an empty array is loaded', () => {
       const arr = AsyncData.loaded([]);
       expect(arr.isEmpty()).toBe(true);
+    });
+
+    it('returns true if the internal array is a single null ', () => {
+      const ad = AsyncData.loaded([null]);
+      expect(ad.isEmpty()).toBe(true);
+    });
+  });
+
+  describe('.findIndex', () => {
+    it('returns the array index of an element', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4, 5]);
+      expect(ad.findIndex((x) => x === 3)).toEqual(2);
+    });
+
+    it('returns -1 if there is no match', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4, 5]);
+      expect(ad.findIndex((x) => x === 39)).toEqual(-1);
+    });
+  });
+
+  describe('.concat', () => {
+    it('adds additional elements to the loaded data', () => {
+      const ad = AsyncData.loaded([1, 2, 3]);
+      const newAd = ad.concat([4, 5]);
+      expect(newAd.value()).toEqual([1, 2, 3, 4, 5]);
+    });
+  });
+
+  describe('.sort', () => {
+    it('sorts the AsyncData alphabetically', () => {
+      const ad = AsyncData.loaded([1, 100, 11]);
+      expect(ad.sort()).toEqual([1, 100, 11]);
+    });
+
+    it('supports comparison functions', () => {
+      const ad = AsyncData.loaded([1, 100, 11]);
+      expect(ad.sort((a, b) => a - b)).toEqual([1, 11, 100]);
+    });
+  });
+
+  describe('.get', () => {
+    it('returns the value at the given index', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.get(1)).toEqual(2);
+    });
+
+    it('returns undefined if the index is beyond the end of the data', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.get(5)).toBeUndefined();
+    });
+  });
+
+  describe('.remove', () => {
+    it('removes the value at the given index', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.remove(1).value()).toEqual([1, 3, 4]);
+    });
+
+    it('does not mutate any source arrays', () => {
+      const arr = [1, 2, 3, 4];
+      const ad = AsyncData.loaded(arr);
+      expect(ad.remove(1).value()).toEqual([1, 3, 4]);
+      expect(arr).toEqual([1, 2, 3, 4]);
+    });
+
+    it('leaves the data unchanged if the index is beyond the end of the data', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.remove(5).value()).toEqual([1, 2, 3, 4]);
+    });
+  });
+
+  describe('.all', () => {
+    it('returns true if predicate is true for all elements', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.all((x) => x < 5)).toBe(true);
+    });
+
+    it('returns false if predicate is false for any element', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.all((x) => x < 4)).toBe(false);
+    });
+
+    it('returns true for an empty array', () => {
+      const ad = AsyncData.loaded([]);
+      expect(ad.all((x) => x < 4)).toBe(true);
+    });
+  });
+
+  describe('.any', () => {
+    it('returns true if predicate is true for any element', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.any((x) => x < 5)).toBe(true);
+    });
+
+    it('returns false if predicate is false for all elements', () => {
+      const ad = AsyncData.loaded([1, 2, 3, 4]);
+      expect(ad.any((x) => x > 4)).toBe(false);
+    });
+
+    it('returns false for an empty array', () => {
+      const ad = AsyncData.loaded([]);
+      expect(ad.any((x) => x < 4)).toBe(false);
     });
   });
 });
