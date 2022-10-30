@@ -8,6 +8,8 @@ exclude_patterns:
   - ".vscode/**"
   - ".github/**"
 plugins:
+  nodesecurity:
+    enabled: true
   eslint:
     enabled: true
     config: .eslintrc.js
