@@ -4,12 +4,10 @@ checks:
     config:
       threshold: 9
 plugins:
-  git-legal:
-    enabled: true
   eslint:
     enabled: true
     config: .eslintrc.js
-    channel: eslint-6
+    channel: eslint-7
   fixme:
     enabled: true
     config:
