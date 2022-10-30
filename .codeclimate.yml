@@ -3,6 +3,10 @@ checks:
   method-complexity:
     config:
       threshold: 9
+exclude_patterns:
+  - ".yarn/**"
+  - ".vscode/**"
+  - ".github/**"
 plugins:
   eslint:
     enabled: true
