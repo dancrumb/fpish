@@ -5,7 +5,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: "yarn" # See documentation for possible values
+  - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
@@ -13,3 +13,4 @@ updates:
       - "automerge"
     reviewers:
       - "dancrumb"
+    open-pull-requests-limit: 5
