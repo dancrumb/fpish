@@ -29,7 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@jest/globals", "npm:29.3.1"],\
-            ["@types/jest", "npm:29.2.2"],\
+            ["@types/jest", "npm:29.2.3"],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/sinon", "npm:10.0.13"],\
             ["@typescript-eslint/eslint-plugin", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:5.43.0"],\
@@ -845,7 +845,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@dancrumb/fpish", "workspace:."],\
             ["@jest/globals", "npm:29.3.1"],\
-            ["@types/jest", "npm:29.2.2"],\
+            ["@types/jest", "npm:29.2.3"],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/sinon", "npm:10.0.13"],\
             ["@typescript-eslint/eslint-plugin", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:5.43.0"],\
@@ -1542,10 +1542,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/jest", [\
-        ["npm:29.2.2", {\
-          "packageLocation": "./.yarn/cache/@types-jest-npm-29.2.2-563a51378d-13b1a48858.zip/node_modules/@types/jest/",\
+        ["npm:29.2.3", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.2.3-717f400a5c-5537090671.zip/node_modules/@types/jest/",\
           "packageDependencies": [\
-            ["@types/jest", "npm:29.2.2"],\
+            ["@types/jest", "npm:29.2.3"],\
             ["expect", "npm:29.2.0"],\
             ["pretty-format", "npm:29.2.0"]\
           ],\
@@ -5686,7 +5686,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
             ["@types/esbuild", null],\
-            ["@types/jest", "npm:29.2.2"],\
+            ["@types/jest", "npm:29.2.3"],\
             ["@types/jest__types", null],\
             ["@types/typescript", null],\
             ["babel-jest", null],\
