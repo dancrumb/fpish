@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["git-cz", "npm:4.9.0"],\
             ["jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.3.1"],\
             ["prettier", "npm:2.8.0"],\
-            ["sinon", "npm:14.0.2"],\
+            ["sinon", "npm:15.0.0"],\
             ["ts-jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.0.3"],\
             ["ts-node", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"]\
@@ -856,7 +856,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["git-cz", "npm:4.9.0"],\
             ["jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.3.1"],\
             ["prettier", "npm:2.8.0"],\
-            ["sinon", "npm:14.0.2"],\
+            ["sinon", "npm:15.0.0"],\
             ["ts-jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.0.3"],\
             ["ts-node", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"]\
@@ -5335,10 +5335,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sinon", [\
-        ["npm:14.0.2", {\
-          "packageLocation": "./.yarn/cache/sinon-npm-14.0.2-76bb0b1579-de7730cd77.zip/node_modules/sinon/",\
+        ["npm:15.0.0", {\
+          "packageLocation": "./.yarn/cache/sinon-npm-15.0.0-27e29c2290-97febf6c6c.zip/node_modules/sinon/",\
           "packageDependencies": [\
-            ["sinon", "npm:14.0.2"],\
+            ["sinon", "npm:15.0.0"],\
             ["@sinonjs/commons", "npm:2.0.0"],\
             ["@sinonjs/fake-timers", "npm:9.1.2"],\
             ["@sinonjs/samsam", "npm:7.0.1"],\
