@@ -11,7 +11,7 @@ cffi==1.15.1
 charset-normalizer==3.0.1
 ConfigArgParse==1.5.3
 configobj==5.0.8
-cryptography==39.0.0
+cryptography==41.0.3
 distro==1.8.0
 docutils==0.20.1
 idna==3.4
@@ -35,7 +35,7 @@ pyRFC3339==1.1
 python-dateutil==2.8.2
 pytz==2022.7.1
 PyYAML==6.0
-requests==2.28.2
+requests==2.31.0
 s3transfer==0.6.0
 six==1.16.0
 snowballstemmer==2.2.0
@@ -47,5 +47,4 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
 tomli==2.0.1
-typing_extensions @ file:///private/tmp/python-typing-extensions-20230602-7526-etcnat/typing_extensions-4.6.3/dist/typing_extensions-4.6.3-py3-none-any.whl
 urllib3==1.26.14
