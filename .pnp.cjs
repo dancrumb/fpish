@@ -30,7 +30,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@jest/globals", "npm:29.6.2"],\
             ["@types/jest", "npm:29.5.3"],\
-            ["@types/node", "npm:18.16.3"],\
+            ["@types/node", "npm:20.4.8"],\
             ["@typescript-eslint/eslint-plugin", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:6.2.1"],\
             ["@typescript-eslint/parser", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:6.2.1"],\
             ["eslint", "npm:8.46.0"],\
@@ -853,7 +853,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@dancrumb/fpish", "workspace:."],\
             ["@jest/globals", "npm:29.6.2"],\
             ["@types/jest", "npm:29.5.3"],\
-            ["@types/node", "npm:18.16.3"],\
+            ["@types/node", "npm:20.4.8"],\
             ["@typescript-eslint/eslint-plugin", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:6.2.1"],\
             ["@typescript-eslint/parser", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:6.2.1"],\
             ["eslint", "npm:8.46.0"],\
@@ -1614,6 +1614,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-18.16.3-4036a5f5f3-816b39d45b.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:18.16.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:20.4.8", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.4.8-f8f2d8d349-86a3963c0c.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:20.4.8"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5875,7 +5882,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.11"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@tsconfig/node16", "npm:1.0.3"],\
-            ["@types/node", "npm:18.16.3"],\
+            ["@types/node", "npm:20.4.8"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
