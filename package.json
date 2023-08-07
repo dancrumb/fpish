@@ -52,10 +52,5 @@
       "path": "git-cz"
     }
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public",
-    "main": "dist/index.js"
-  },
   "packageManager": "yarn@3.6.1"
 }
