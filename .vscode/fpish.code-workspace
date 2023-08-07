@@ -16,6 +16,11 @@
     "jest.autoRun": {"watch": true, "onStartup": ["all-tests"]},
     "jest.showCoverageOnLoad": true,
     "jest.coverageFormatter": "DefaultFormatter",
-    "jest.debugCodeLens.showWhenTestStateIn": ["pass", "fail", "unknown"]
+    "jest.debugCodeLens.showWhenTestStateIn": [
+      "pass",
+      "fail",
+      "unknown"
+    ],
+    "editor.formatOnSave": false
   }
 }

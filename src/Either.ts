@@ -29,7 +29,7 @@ export class Either<L, R> {
   private readonly left: Optional<L>;
   private readonly right: Optional<R>;
 
-  private constructor(l: Optional<L>, r: Optional<R>) {
+  constructor(l: Optional<L>, r: Optional<R>) {
     this.left = l;
     this.right = r;
   }
