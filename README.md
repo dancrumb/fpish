@@ -1,8 +1,7 @@
 # FP-ish
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdancrumb%2Ffpish.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdancrumb%2Ffpish?ref=badge_shield)
-[![Build Status](https://img.shields.io/github/workflow/status/dancrumb/fpish/Build%20and%20Test?style=for-the-badge)](https://github.com/dancrumb/fpish/actions/workflows/build-and-test.yml)
-[![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/dancrumb/fpish?style=for-the-badge)](https://snyk.io/test/github/dancrumb/fpish)
-
+[![Build Status](https://img.shields.io/github/workflow/status/dancrumb/fpish/Build%20and%20Test)](https://github.com/dancrumb/fpish/actions/workflows/build-and-test.yml)
+[![Known Vulnerabilities](https://snyk.io/test/github/dancrumb/fpish/badge.svg)](https://snyk.io/test/github/dancrumb/fpish)
 
 This package contains a series of "FP-friendly" classes for use in your code.
 
@@ -17,12 +16,3 @@ Put another way, in a purely FP language, the set of functions F that can operat
 Well, me. I don't think this definition should cause anyone by the most hardened purist any real concern.
 
 Implementing these in a purely FP style would still result in the functions being packaged someway, probably in some kind of namespace. This is just another way to manage this.
-
-## Releasing a new version
-
-If you're able to release new version, you should do:
-
-```
-npm run release
-git push && git push --tags
-```
