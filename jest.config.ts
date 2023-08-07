@@ -13,6 +13,8 @@ const jestConfig: JestConfigWithTsJest = {
   collectCoverageFrom: ['**/src/*.ts'],
   coverageReporters: ['html', 'lcov', 'cobertura'],
   testPathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/node_modules/'],
+  moduleDirectories: ["node_modules","<module-directory>"],
+
 };
 
 export default jestConfig;
