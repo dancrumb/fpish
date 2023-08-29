@@ -38,7 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:5.0.0"],\
             ["git-cz", "npm:4.9.0"],\
             ["jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.6.2"],\
-            ["prettier", "npm:3.0.1"],\
+            ["prettier", "npm:3.0.3"],\
             ["ts-jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.1.1"],\
             ["ts-node", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"]\
@@ -861,7 +861,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-prettier", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:5.0.0"],\
             ["git-cz", "npm:4.9.0"],\
             ["jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.6.2"],\
-            ["prettier", "npm:3.0.1"],\
+            ["prettier", "npm:3.0.3"],\
             ["ts-jest", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:29.1.1"],\
             ["ts-node", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"]\
@@ -2930,7 +2930,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/prettier", null],\
             ["eslint", "npm:8.46.0"],\
             ["eslint-config-prettier", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:9.0.0"],\
-            ["prettier", "npm:3.0.1"],\
+            ["prettier", "npm:3.0.3"],\
             ["prettier-linter-helpers", "npm:1.0.0"],\
             ["synckit", "npm:0.8.5"]\
           ],\
@@ -5160,10 +5160,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:3.0.1", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-3.0.1-d00deab00c-e1f3f16c7f.zip/node_modules/prettier/",\
+        ["npm:3.0.3", {\
+          "packageLocation": "./.yarn/unplugged/prettier-npm-3.0.3-fced695dae/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:3.0.1"]\
+            ["prettier", "npm:3.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
