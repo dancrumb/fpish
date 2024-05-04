@@ -36,7 +36,7 @@ describe('AsyncData', () => {
     });
     test('handles loading data', () => {
       const data = AsyncData.loading<number>();
-      expect(data.filter((x) => true).isLoading()).toBe(true);
+      expect(data.filter(() => true).isLoading()).toBe(true);
     });
   });
 
