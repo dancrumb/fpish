@@ -127,7 +127,11 @@ export class Either<L, R> {
    *
    * @param lFunc
    */
-  public proceedLeft<T>(lFunc: (val: L) => Either<T, R>): Either<T, R> {
+  public proceedLeft<T>(lFunc: (val: L) => Promise<Either<T, R>>): Promise<Either<T, R>>;
+  public proceedLeft<T>(lFunc: (val: L) => Either<T, R>): Either<T, R>;
+  public proceedLeft<T>(
+    lFunc: ((val: L) => Either<T, R>) | ((val: L) => Promise<Either<T, R>>)
+  ): Either<T, R> | Promise<Either<T, R>> {
     if (this.left.isPresent()) {
       return lFunc(this.left.get());
     }
@@ -144,23 +148,11 @@ export class Either<L, R> {
    *
    * @param rFunc
    */
-  public proceedRight<T>(rFunc: (val: R) => Either<L, T>): Either<L, T> {
-    if (this.right.isPresent()) {
-      return rFunc(this.right.get());
-    }
-
-    return Either.left<L, T>(this.left.get());
-  }
-
-  /**
-   * This provides an implementation of {@link proceedRightAsync} that can handle a mapping function
-   * that returns a `Promise<Either>`.
-   *
-   * @param rFunc
-   */
-  public async proceedRightAsync<T>(
-    rFunc: (val: R) => Promise<Either<L, T>>
-  ): Promise<Either<L, T>> {
+  public proceedRight<T>(rFunc: (val: R) => Promise<Either<L, T>>): Promise<Either<L, T>>;
+  public proceedRight<T>(rFunc: (val: R) => Either<L, T>): Either<L, T>;
+  public proceedRight<T>(
+    rFunc: ((val: R) => Either<L, T>) | ((val: R) => Promise<Either<L, T>>)
+  ): Either<L, T> | Promise<Either<L, T>> {
     if (this.right.isPresent()) {
       return rFunc(this.right.get());
     }

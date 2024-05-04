@@ -62,4 +62,17 @@ describe('Either', () => {
       expect(e.isLeft()).toBe(false);
     });
   });
+  describe('.proceedLeft', () => {
+    test('handles regular functions', () => {
+      const e = Either.left('test');
+      expect(e.proceedLeft((x) => Either.left(x + 'ing')).getLeft()).toBe('testing');
+    });
+    test('handles async functions', async () => {
+      const e = Either.left('test');
+      const proceeded = await e.proceedLeft((x) =>
+        Promise.resolve(Either.left(x + 'ing'))
+      );
+      expect(proceeded.getLeft()).toBe('testing');
+    });
+  });
 });
