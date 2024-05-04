@@ -22,7 +22,7 @@ jobs:
   test:
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [18.x]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
           cache: "yarn"
       - run: yarn install --immutable
       - name: Code Climate Coverage Action
-        uses: paambaati/codeclimate-action@v3.2.0
+        uses: paambaati/codeclimate-action@v5
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
