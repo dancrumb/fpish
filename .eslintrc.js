@@ -17,13 +17,12 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: [resolve(__dirname, './tsconfig.json')],
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
@@ -39,7 +38,6 @@ module.exports = {
     'no-throw-literal': 'error',
     'no-unused-labels': 'error',
     'no-var': 'error',
-    'prettier/prettier': 'error',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
   },
