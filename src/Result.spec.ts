@@ -30,13 +30,13 @@ describe('Result', () => {
     expect(
       Result.success(1).map(
         (d) => Optional.of((d as number) * 2),
-        (d) => Optional.of(0)
+        () => Optional.of(0)
       )
     ).toBe(2);
     expect(
       Result.error(new Error('Test')).map(
         (d) => Optional.of((d as number) * 2),
-        (d) => Optional.of(0)
+        () => Optional.of(0)
       )
     ).toBe(0);
   });

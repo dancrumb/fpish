@@ -115,7 +115,7 @@ describe('Optional', () => {
     test('filters empty to empty', () => {
       expect(
         Optional.empty()
-          .filter((x) => true)
+          .filter(() => true)
           .isPresent()
       ).toBe(false);
     });
@@ -190,14 +190,14 @@ describe('Optional', () => {
       expect(fn).toBeCalledWith(3);
     });
     test('calls a function with the value, if there is one and not the else function', () => {
-      const fn = vi.fn((v) => {});
+      const fn = vi.fn(() => {});
       const elseFn = vi.fn(() => {});
       Optional.of(3).ifPresent(fn).orElse(elseFn);
       expect(fn).toBeCalledWith(3);
       expect(elseFn).not.toBeCalled();
     });
     test("calls the else function without a value, if there isn't one", () => {
-      const fn = vi.fn((v) => {});
+      const fn = vi.fn(() => {});
       const elseFn = vi.fn(() => {});
       Optional.empty().ifPresent(fn).orElse(elseFn);
       expect(fn).not.toBeCalled();
