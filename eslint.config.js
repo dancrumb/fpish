@@ -4,7 +4,9 @@ import tsParse from '@typescript-eslint/parser'
 export default [
   {
     files: ["**/*.ts"],
+  },{
     ignores: [
+      '.pnp.*',
       '**/dist/**',
       '**/coverage/**',
       '**/node_modules/**',
