@@ -20,6 +20,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           scope: '@dancrumb'
       - run: yarn
+      - run: yarn build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
