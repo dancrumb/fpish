@@ -11,8 +11,8 @@
   "scripts": {
     "build": "yarn run tsc -p tsconfig.production.json",
     "prerelease": "yarn run prepare",
-    "lint": "yarn run eslint -c .eslintrc.js",
-    "lint:ci": "yarn run eslint -c .eslintrc.js  --format junit --output-file ./reports/eslint.xml src",
+    "lint": "yarn run eslint",
+    "lint:ci": "yarn run eslint --format junit --output-file ./reports/eslint.xml src",
     "postversion": "git push && git push --tags",
     "prettier:cli": "yarn run prettier \"src/**/*.ts\"",
     "prettier:check": "yarn run prettier:cli -- -l",
@@ -36,6 +36,7 @@
     "@typescript-eslint/parser": "7.8.0",
     "@vitest/coverage-v8": "^1.6.0",
     "eslint": "9.2.0",
+    "eslint-formatter-junit": "^8.40.0",
     "git-cz": "4.9.0",
     "prettier": "3.2.5",
     "ts-node": "10.9.2",

@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:7.8.0"],\
             ["@vitest/coverage-v8", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:1.6.0"],\
             ["eslint", "npm:9.2.0"],\
+            ["eslint-formatter-junit", "npm:8.40.0"],\
             ["git-cz", "npm:4.9.0"],\
             ["prettier", "npm:3.2.5"],\
             ["ts-node", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:10.9.2"],\
@@ -157,6 +158,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:7.8.0"],\
             ["@vitest/coverage-v8", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:1.6.0"],\
             ["eslint", "npm:9.2.0"],\
+            ["eslint-formatter-junit", "npm:8.40.0"],\
             ["git-cz", "npm:4.9.0"],\
             ["prettier", "npm:3.2.5"],\
             ["ts-node", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:10.9.2"],\
@@ -1784,6 +1786,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["optionator", "npm:0.9.3"],\
             ["strip-ansi", "npm:6.0.1"],\
             ["text-table", "npm:0.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["eslint-formatter-junit", [\
+        ["npm:8.40.0", {\
+          "packageLocation": "./.yarn/cache/eslint-formatter-junit-npm-8.40.0-ea8ca6e55b-dd114912a7.zip/node_modules/eslint-formatter-junit/",\
+          "packageDependencies": [\
+            ["eslint-formatter-junit", "npm:8.40.0"]\
           ],\
           "linkType": "HARD"\
         }]\
