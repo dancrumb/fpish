@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [commit
 
 ### ⚠ BREAKING CHANGES
 
-* 🧨 y
+* 🧨 `proceedLeftAsync` and `proceedRightAsync` are no longer supported. Use `proceedLeft` and `proceedRight` instead
 
 ✅ Closes: 195
 
