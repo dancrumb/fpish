@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [6.0.1](https://github.com/dancrumb/fpish/compare/v6.0.0...v6.0.1) (2024-05-05)
+
 ## [6.0.0](https://github.com/dancrumb/fpish/compare/v5.2.1...v6.0.0) (2024-05-05)
 
 
