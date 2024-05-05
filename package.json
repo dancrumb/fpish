@@ -1,6 +1,6 @@
 {
   "name": "@dancrumb/fpish",
-  "version": "5.2.1",
+  "version": "6.0.0",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,6 +35,9 @@
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
     "@vitest/coverage-v8": "^1.6.0",
+    "commit-and-tag-version": "^12.4.1",
+    "conventional-changelog": "^6.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "9.2.0",
     "eslint-formatter-junit": "^8.40.0",
     "git-cz": "4.9.0",
@@ -48,7 +51,7 @@
   ],
   "config": {
     "commitizen": {
-      "path": "git-cz"
+      "path": "cz-conventional-changelog"
     }
   },
   "packageManager": "yarn@3.6.1"

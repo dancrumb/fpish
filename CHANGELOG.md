@@ -1,3 +1,20 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [6.0.0](https://github.com/dancrumb/fpish/compare/v5.2.1...v6.0.0) (2024-05-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* 🧨 y
+
+✅ Closes: 195
+
+### Features
+
+* 🎸 make Result more user friendly ([d55fd2d](https://github.com/dancrumb/fpish/commit/d55fd2db45c1fc2ea0bec231ec8f361be71b642a))
+
 ## v5.2.1 (2023-08-07)
 
 ## v5.2.0 (2023-08-07)
