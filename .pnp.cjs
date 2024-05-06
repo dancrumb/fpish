@@ -29,7 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@eslint/js", "npm:9.2.0"],\
-            ["@types/node", "npm:20.12.8"],\
+            ["@types/node", "npm:20.12.10"],\
             ["@typescript-eslint/eslint-plugin", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:7.8.0"],\
             ["@typescript-eslint/parser", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:7.8.0"],\
             ["@vitest/coverage-v8", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:1.6.0"],\
@@ -286,7 +286,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@dancrumb/fpish", "workspace:."],\
             ["@eslint/js", "npm:9.2.0"],\
-            ["@types/node", "npm:20.12.8"],\
+            ["@types/node", "npm:20.12.10"],\
             ["@typescript-eslint/eslint-plugin", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:7.8.0"],\
             ["@typescript-eslint/parser", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:7.8.0"],\
             ["@vitest/coverage-v8", "virtual:23e3995e375b44de2e6dd1ff9a2e807d8a1e171956c03dcff966a0db5afee3cbdc6b01c9bec8b08a70b2b195f13a7d63f7e051cd6ec21ab10a4fbc95502b5983#npm:1.6.0"],\
@@ -990,7 +990,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-conventional-commits-parser-npm-5.0.0-cc661330d3-88013c53ad.zip/node_modules/@types/conventional-commits-parser/",\
           "packageDependencies": [\
             ["@types/conventional-commits-parser", "npm:5.0.0"],\
-            ["@types/node", "npm:20.12.8"]\
+            ["@types/node", "npm:20.12.10"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1023,10 +1023,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/node", [\
-        ["npm:20.12.8", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-20.12.8-f4c49e4029-84d4876d95.zip/node_modules/@types/node/",\
+        ["npm:20.12.10", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.12.10-a3a9559a54-8c35a349f4.zip/node_modules/@types/node/",\
           "packageDependencies": [\
-            ["@types/node", "npm:20.12.8"],\
+            ["@types/node", "npm:20.12.10"],\
             ["undici-types", "npm:5.26.5"]\
           ],\
           "linkType": "HARD"\
@@ -6575,7 +6575,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.11"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@tsconfig/node16", "npm:1.0.3"],\
-            ["@types/node", "npm:20.12.8"],\
+            ["@types/node", "npm:20.12.10"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
@@ -6885,7 +6885,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["vite", "virtual:e4509e511d58359602b6581cd49dc2aa9c5d10684729b4150e55434f205c2c73c73c1ba03e1020a27a2c89e409d4a02b4d27f5770b563e9724e0e1cf1760bba1#npm:5.2.11"],\
             ["@types/less", null],\
             ["@types/lightningcss", null],\
-            ["@types/node", "npm:20.12.8"],\
+            ["@types/node", "npm:20.12.10"],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
             ["@types/sugarss", null],\
@@ -6949,7 +6949,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/edge-runtime__vm", null],\
             ["@types/happy-dom", null],\
             ["@types/jsdom", null],\
-            ["@types/node", "npm:20.12.8"],\
+            ["@types/node", "npm:20.12.10"],\
             ["@types/vitest__browser", null],\
             ["@types/vitest__ui", null],\
             ["@vitest/browser", null],\
