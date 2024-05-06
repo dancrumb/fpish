@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.0.0](https://github.com/dancrumb/fpish/compare/v6.0.3...v7.0.0) (2024-05-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **result, either:** Removes the Result class
+
+### Features
+
+* **result, either:** remove Result and add `throwError` ([e519df0](https://github.com/dancrumb/fpish/commit/e519df069139a8c875abb7a8d363fbd8021dbdd2)), closes [#202](https://github.com/dancrumb/fpish/issues/202)
+
+
+### Bug Fixes
+
+* **result:** remove export from index.ts ([e876899](https://github.com/dancrumb/fpish/commit/e87689910eea15f60c0dc90dfcd79fc91bf88d31))
+
 ## [6.0.3](https://github.com/dancrumb/fpish/compare/v6.0.2...v6.0.3) (2024-05-06)
 
 
