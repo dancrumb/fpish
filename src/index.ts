@@ -3,7 +3,6 @@ import {Optional} from './Optional';
 export * from './Optional';
 export * from './AsyncData';
 export * from './Either';
-export * from './Result';
 export * from './Lazy';
 export * from './partial';
 
