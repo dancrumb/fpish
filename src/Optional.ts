@@ -1,9 +1,11 @@
-import {NoSuchElementException} from './exceptions/NoSuchElementException';
+import { NoSuchElementException } from './exceptions/NoSuchElementException';
 
 /*
  * TS Implementation of https://docs.oracle.com/javase/8/docs/api/java/util/fp/Optional.html
  */
 const haveValue = <T>(value: T | undefined): value is T => typeof value !== 'undefined';
+
+const strictEquals = <T>(a:T, b:T) => a === b;
 
 /**
  * An implementation of https://docs.oracle.com/javase/8/docs/api/java/util/fp/Optional.html
@@ -59,11 +61,16 @@ export class Optional<T> {
   }
 
   /**
-   * Map the value of an Optional to another value of the same or a different type.
+   * Map the value of an Optional to another value of the same type.
    *
    * @param mapper
    */
   map<O>(mapper: (v: T) => Optional<O>): Optional<O>;
+  /**
+   * Map the value of an Optional to another value of a different type.
+   * 
+   * @overload
+   */
   map<U>(mapper: (v: T) => U | undefined | null): Optional<U>;
   map<U>(mapper: (v: T) => U | undefined | null): Optional<U> {
     if (haveValue(this.value)) {
@@ -109,11 +116,11 @@ export class Optional<T> {
    *
    * @param consumer
    */
-  ifPresent(consumer: (val: T) => void): {orElse: (f: () => void) => void} {
+  ifPresent(consumer: (val: T) => void): { orElse: (f: () => void) => void } {
     if (haveValue(this.value)) {
       consumer(this.value);
       return {
-        orElse: () => {},
+        orElse: () => { },
       };
     }
     return {
@@ -198,9 +205,9 @@ export class Optional<T> {
    * empty Optionals.
    *
    * @param val
-   * @param [isEqual] - an optional function for comparing equality
+   * @param isEqual - an optional function for comparing equality
    */
-  equals(val: Optional<T>, isEqual: (a: T, b: T) => boolean = (a, b) => a === b) {
+  equals(val: Optional<T>, isEqual: (a: T, b: T) => boolean =strictEquals) {
     if (this.isPresent() && val.isPresent()) {
       return isEqual(val.get(), this.get());
     }
@@ -221,6 +228,17 @@ export class Optional<T> {
   }
 
   /**
+   * @overload
+   * @param key a property of the enclosed value
+   */
+  property<K extends keyof T>(key: K): T[K] | undefined;
+  /**
+   * @overload
+   * @param key a property of the enclosed value
+   * @param orElse a default value
+   */
+  property<K extends keyof T>(key: K, orElse: NonNullable<T[K]>): NonNullable<T[K]>;
+  /**
    * Returns a property of the enclosed type. Obviously, this assumes
    * that the contained type has properties.
    *
@@ -229,8 +247,6 @@ export class Optional<T> {
    * @param key a property of the enclosed value
    * @param orElse a default value
    */
-  property<K extends keyof T>(key: K): T[K] | undefined;
-  property<K extends keyof T>(key: K, orElse: NonNullable<T[K]>): NonNullable<T[K]>;
   property<K extends keyof T>(
     key: K,
     orElse?: NonNullable<T[K]>
@@ -242,6 +258,9 @@ export class Optional<T> {
     return value.orNothing();
   }
 
+  /**
+   * See [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#description)
+   */
   toJSON() {
     if (haveValue(this.value)) {
       return this.value;

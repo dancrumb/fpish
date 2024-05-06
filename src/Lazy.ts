@@ -1,3 +1,6 @@
+/**
+ * This is a simple function that takes data of one type and returns data of another type
+ */
 type Builder<T, I = void> = (input: I) => T | Promise<T>;
 
 /**
@@ -34,8 +37,8 @@ export class Lazy<T> {
   }
 
   /**
-   * Creates a new Lazy<S> value. The initializer takes the value of this Lazy<T> and uses it
-   * to create a Lazy<S>
+   * Creates a new `Lazy<S>` value. The initializer takes the value of this `Lazy<T>` and uses it
+   * to create a `Lazy<S>`
    *
    * Multiple values can be chained; they won't initialize until the last one is resolved.
    *
