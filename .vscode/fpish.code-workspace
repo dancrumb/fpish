@@ -5,22 +5,14 @@
     }
   ],
   "settings": {
-    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "editor.formatOnSave": false,
     "eslint.nodePath": ".yarn/sdks",
-    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
     "search.exclude": {
-      "**/.yarn": true,
-      "**/.pnp.*": true
+      "**/.pnp.*": true,
+      "**/.yarn": true
     },
-    "jest.jestCommandLine": "yarn test",
-    "jest.autoRun": {"watch": true, "onStartup": ["all-tests"]},
-    "jest.showCoverageOnLoad": true,
-    "jest.coverageFormatter": "DefaultFormatter",
-    "jest.debugCodeLens.showWhenTestStateIn": [
-      "pass",
-      "fail",
-      "unknown"
-    ],
-    "editor.formatOnSave": false
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
   }
 }
