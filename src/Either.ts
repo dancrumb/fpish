@@ -193,3 +193,12 @@ export class Either<L, R> {
     this.right.ifPresent(rFunc);
   }
 }
+
+
+/**
+ * This is a handy utility function that just throws an error
+ * that exists in an Either. Useful for Either.apply
+ */
+export const throwError = (e:Error) => {
+  throw e
+}
