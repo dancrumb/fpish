@@ -1,12 +1,21 @@
 import {Either, Optional} from '.';
 
+/**
+ * The various states that an async request for data can be in
+ */
 export enum RemoteDataStatus {
+  /** No request has been sent yet */
   'NotAsked',
+  /** A request has been sent, but no response has been received */
   'Loading',
-  'Failure',
-  'Success',
-  'Failed' = RemoteDataStatus.Failure,
-  'Succeeded' = RemoteDataStatus.Success,
+  /** A response has been received and it indicated an error */
+  'Failed',
+  /** A response has been received and it was successful */
+  'Succeeded',
+  /** @deprecated synonym for `Failed` */
+  'Failure' = RemoteDataStatus.Failed,
+  /** @deprecated synonym for `Succeeded` */
+  'Success' = RemoteDataStatus.Succeeded,
 }
 
 /**
@@ -15,6 +24,8 @@ export enum RemoteDataStatus {
  * It can be single-valued or an array of values. The caller is expected to
  * know which it is
  *
+ * @template D A type representing the shape of data that is being requested
+ * @template E A type representing the shape of errors that can be returned
  */
 export class AsyncData<D, E = {}> {
   protected status: RemoteDataStatus = RemoteDataStatus.NotAsked;
@@ -104,6 +115,10 @@ export class AsyncData<D, E = {}> {
     });
   }
 
+  /**
+   * 
+   * @returns true if this object currently contains retrievable data, i.e. not an error and not an inflight request
+   */
   containsData() {
     return this.internal.isRight();
   }
@@ -326,6 +341,16 @@ export class AsyncData<D, E = {}> {
     return this.cloneWithNewData(this.value().concat(...items));
   }
 
+  /**
+   * Sorts the elements of data, according to `compareFn`
+   * 
+   * Note that this does not sort the elements in place
+   * 
+   * @param compareFn The comparison function to be applied to the data elements. See [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) documentation for more detail
+   * 
+   * 
+   * @throws an error if no response has been received
+   */
   sort(compareFn?: (a: D, b: D) => number) {
     return this.value().slice().sort(compareFn);
   }
@@ -338,16 +363,46 @@ export class AsyncData<D, E = {}> {
     return this.filter((_, i) => i !== index);
   }
 
+  /**
+   * This returns `true` if the `predicate` returns `true` for every element of data.
+   * 
+   * It is synonymous with {@link every}
+   * 
+   * @throws an error if no response has been received
+   */
   all(predicate: (value: D, index: number, array: D[]) => boolean): boolean {
     return this.every(predicate);
   }
+
+  /**
+   * This returns `true` if the `predicate` returns `true` for every element of data.
+   * 
+   * It is synonymous with {@link all}
+   * 
+   * @throws an error if no response has been received
+   */
   every(predicate: (value: D, index: number, array: D[]) => boolean): boolean {
     return this.value().every(predicate);
   }
 
+  /**
+   * This returns `true` if the `predicate` returns `true` for any element of data.
+   * 
+   * It is synonymous with {@link some}
+   * 
+   * @throws an error if no response has been received
+   */
   any(predicate: (value: D, index: number, array: D[]) => boolean): boolean {
     return this.some(predicate);
   }
+
+  /**
+   * This returns `true` if the `predicate` returns `true` for any element of data.
+   * 
+   * It is synonymous with {@link any}
+   * 
+   * @throws an error if no response has been received
+   */
   some(predicate: (value: D, index: number, array: D[]) => boolean): boolean {
     return this.value().some(predicate);
   }
