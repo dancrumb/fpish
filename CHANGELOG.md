@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.2.1](https://github.com/dancrumb/fpish/compare/v7.2.0...v7.2.1) (2024-05-07)
+
+
+### Bug Fixes
+
+* **utilities:** actually export the utility functions ([1786429](https://github.com/dancrumb/fpish/commit/1786429c344bbd2fea7254f7e3e69c28ebefd2d0))
+
 ## [7.2.0](https://github.com/dancrumb/fpish/compare/v7.1.0...v7.2.0) (2024-05-07)
 
 
