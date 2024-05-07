@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.2.0](https://github.com/dancrumb/fpish/compare/v7.1.0...v7.2.0) (2024-05-07)
+
+
+### Features
+
+* convert to ESM ([3072264](https://github.com/dancrumb/fpish/commit/307226485bb670cfe745eef64db94a6d4e948d0b))
+* **utilities:** add utility functions to make for cleaner consuming code ([6c9057e](https://github.com/dancrumb/fpish/commit/6c9057e5e32a299bae360c08f977d0bba4d39d74))
+
 ## [7.1.0](https://github.com/dancrumb/fpish/compare/v7.0.0...v7.1.0) (2024-05-07)
 
 
