@@ -1,4 +1,4 @@
-import {Optional} from './Optional';
+import { Optional } from './Optional.js';
 
 /**
  * The `Either<R,L>` type represents 2 possible values of 2 possible types.
@@ -196,14 +196,14 @@ export class Either<L, R> {
   /**
    * Runs the provided function if the left value is populated
    */
-  public ifLeft(lFunc: (val:L) => void) {
+  public ifLeft(lFunc: (val: L) => void) {
     this.left.ifPresent(lFunc)
   }
 
   /**
    * Runs the provided function if the right value is populated
    */
-  public ifRight(rFunc: (val:R) => void) {
+  public ifRight(rFunc: (val: R) => void) {
     this.right.ifPresent(rFunc)
   }
 }
@@ -213,6 +213,6 @@ export class Either<L, R> {
  * This is a handy utility function that just throws an error
  * that exists in an Either. Useful for Either.apply
  */
-export const throwError = (e:Error) => {
+export const throwError = (e: Error) => {
   throw e
 }

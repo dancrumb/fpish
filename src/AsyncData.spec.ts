@@ -1,5 +1,5 @@
-import {expect, describe, test} from 'vitest';
-import {AsyncData} from './AsyncData';
+import { expect, describe, test } from 'vitest';
+import { AsyncData } from './AsyncData.js';
 
 describe('AsyncData', () => {
   test('represents a remotely loaded piece of data', () => {
@@ -49,7 +49,7 @@ describe('AsyncData', () => {
     test('returns the original value if it is not lodaed', () => {
       expect(
         AsyncData.notAsked()
-          .reduce(() => {}, undefined)
+          .reduce(() => { }, undefined)
           .isLoaded()
       ).toBe(false);
     });

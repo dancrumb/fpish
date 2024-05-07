@@ -1,10 +1,10 @@
-import {Optional} from './Optional';
+import { Optional } from './Optional.js';
 
-export * from './Optional';
-export * from './AsyncData';
-export * from './Either';
-export * from './Lazy';
-export * from './partial';
+export * from './Optional.js';
+export * from './AsyncData.js';
+export * from './Either.js';
+export * from './Lazy.js';
+export * from './partial.js';
 
 /**
  * Take a function that requires a value of `T` and return a version that takes `Optional<T>`
@@ -16,8 +16,8 @@ export * from './partial';
  */
 export const makeOptional =
   <T>(f: (o: T) => unknown) =>
-  (v: Optional<T>) =>
-    f(v.get());
+    (v: Optional<T>) =>
+      f(v.get());
 
 /**
  * Take a function that requires a value of `Optional<T>` and return a version that takes `T`
@@ -25,5 +25,5 @@ export const makeOptional =
  */
 export const makeNonOptional =
   <T>(f: (o: Optional<T>) => unknown) =>
-  (v: T) =>
-    f(Optional.of(v));
+    (v: T) =>
+      f(Optional.of(v));

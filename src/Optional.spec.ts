@@ -1,7 +1,7 @@
-import {expect, describe, test, vi} from 'vitest';
+import { expect, describe, test, vi } from 'vitest';
 
-import {Optional} from './Optional';
-import {NoSuchElementException} from './exceptions/NoSuchElementException';
+import { Optional } from './Optional.js';
+import { NoSuchElementException } from './exceptions/NoSuchElementException.js';
 
 describe('Optional', () => {
   describe('#of', () => {
@@ -67,8 +67,8 @@ describe('Optional', () => {
     });
     test('compares two Optionals with identical complex values as equal', () => {
       expect(
-        Optional.of({id: 1, age: 3}).equals(
-          Optional.of({id: 1, age: 4}),
+        Optional.of({ id: 1, age: 3 }).equals(
+          Optional.of({ id: 1, age: 4 }),
           (a, b) => a.id === b.id
         )
       ).toBe(true);
@@ -124,7 +124,7 @@ describe('Optional', () => {
     test('returns undefined when JSON stringified', () => {
       const data = Optional.empty();
       expect(JSON.stringify(data)).toBeUndefined();
-      expect(JSON.stringify({data})).toBe('{}');
+      expect(JSON.stringify({ data })).toBe('{}');
     });
     test('returns correct JSON  stringified', () => {
       expect(JSON.stringify(Optional.of(1))).toBe('1');
@@ -167,20 +167,20 @@ describe('Optional', () => {
       expect(getOptional().property('b')).toBe('bee');
     });
     test('returns undefined if no default provided', () => {
-      expect(Optional.empty<{a: number}>().property('a')).toBeUndefined();
+      expect(Optional.empty<{ a: number }>().property('a')).toBeUndefined();
     });
     test('returns the default value for an empty', () => {
-      expect(Optional.empty<{a: number}>().property('a', 9)).toBe(9);
+      expect(Optional.empty<{ a: number }>().property('a', 9)).toBe(9);
     });
     test('returns handles falsy defaults', () => {
-      expect(Optional.empty<{a: number}>().property('a', 0)).toBe(0);
+      expect(Optional.empty<{ a: number }>().property('a', 0)).toBe(0);
     });
     test('returns the default value for an undefined', () => {
       expect(Optional.of(getOptional()).property('c', 'test')).toBe('test');
       expect(Optional.of<Opt>(undefined).property('c', '')).toBe('');
     });
 
-    test('handles the Ahana use case', () => {});
+    test('handles the Ahana use case', () => { });
   });
 
   describe('#ifPresent', () => {
@@ -190,15 +190,15 @@ describe('Optional', () => {
       expect(fn).toBeCalledWith(3);
     });
     test('calls a function with the value, if there is one and not the else function', () => {
-      const fn = vi.fn(() => {});
-      const elseFn = vi.fn(() => {});
+      const fn = vi.fn(() => { });
+      const elseFn = vi.fn(() => { });
       Optional.of(3).ifPresent(fn).orElse(elseFn);
       expect(fn).toBeCalledWith(3);
       expect(elseFn).not.toBeCalled();
     });
     test("calls the else function without a value, if there isn't one", () => {
-      const fn = vi.fn(() => {});
-      const elseFn = vi.fn(() => {});
+      const fn = vi.fn(() => { });
+      const elseFn = vi.fn(() => { });
       Optional.empty().ifPresent(fn).orElse(elseFn);
       expect(fn).not.toBeCalled();
       expect(elseFn).toBeCalled();

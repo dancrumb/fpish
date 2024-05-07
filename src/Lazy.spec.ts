@@ -1,5 +1,5 @@
-import {expect, describe, test, vi} from 'vitest';
-import {Lazy} from './Lazy';
+import { expect, describe, test, vi } from 'vitest';
+import { Lazy } from './Lazy.js';
 
 describe('Lazy', () => {
   test('represents a lazy loaded piece of data', async () => {

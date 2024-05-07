@@ -1,11 +1,11 @@
-import { NoSuchElementException } from './exceptions/NoSuchElementException';
+import { NoSuchElementException } from './exceptions/NoSuchElementException.js';
 
 /*
  * TS Implementation of https://docs.oracle.com/javase/8/docs/api/java/util/fp/Optional.html
  */
 const haveValue = <T>(value: T | undefined): value is T => typeof value !== 'undefined';
 
-const strictEquals = <T>(a:T, b:T) => a === b;
+const strictEquals = <T>(a: T, b: T) => a === b;
 
 /**
  * An implementation of https://docs.oracle.com/javase/8/docs/api/java/util/fp/Optional.html
@@ -207,7 +207,7 @@ export class Optional<T> {
    * @param val
    * @param isEqual - an optional function for comparing equality
    */
-  equals(val: Optional<T>, isEqual: (a: T, b: T) => boolean =strictEquals) {
+  equals(val: Optional<T>, isEqual: (a: T, b: T) => boolean = strictEquals) {
     if (this.isPresent() && val.isPresent()) {
       return isEqual(val.get(), this.get());
     }

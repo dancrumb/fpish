@@ -1,4 +1,6 @@
-import {Either, Optional} from '.';
+import { Either } from "./Either.js";
+import { Optional } from "./Optional.js";
+
 
 /**
  * The various states that an async request for data can be in
@@ -334,7 +336,7 @@ export class AsyncData<D, E = {}> {
       throw new RangeError(`Index ${index} is too small`);
     }
 
-    return this.cloneWithNewData(Object.assign([...arr], {[index]: value}));
+    return this.cloneWithNewData(Object.assign([...arr], { [index]: value }));
   }
 
   concat(...items: (D | ConcatArray<D>)[]) {

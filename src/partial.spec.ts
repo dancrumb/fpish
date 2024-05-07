@@ -1,6 +1,7 @@
-import {expect, describe, test} from 'vitest';
+import { expect, describe, test } from 'vitest';
+import { partial, partialRight } from './partial.js';
 
-import {partial, partialRight} from '.';
+
 
 describe('partial', () => {
   test('peforms partial application', () => {

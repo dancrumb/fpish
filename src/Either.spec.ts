@@ -1,7 +1,7 @@
-import {expect, describe, test, vi} from 'vitest';
+import { expect, describe, test, vi } from 'vitest';
 
-import {Either} from './Either';
-import {Optional} from './Optional';
+import { Either } from './Either.js';
+import { Optional } from './Optional.js';
 
 describe('Either', () => {
   test('maps Optionals correctly (right)', async () => {
