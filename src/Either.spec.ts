@@ -1,4 +1,4 @@
-import {expect, describe, test} from 'vitest';
+import {expect, describe, test, vi} from 'vitest';
 
 import {Either} from './Either';
 import {Optional} from './Optional';
@@ -75,4 +75,28 @@ describe('Either', () => {
       expect(proceeded.getLeft()).toBe('testing');
     });
   });
+  describe('.ifLeft', () => {
+    test('calls a function if the value is left', () => {
+      const func = vi.fn();
+      Either.left(1).ifLeft(func);
+      expect(func).toBeCalled();
+    })
+    test('does not call a function if the value is right', () => {
+      const func = vi.fn();
+      Either.right(1).ifLeft(func);
+      expect(func).not.toBeCalled();
+    })
+  })
+  describe('.ifRight', () => {
+    test('calls a function if the value is right', () => {
+      const func = vi.fn();
+      Either.right(1).ifRight(func);
+      expect(func).toBeCalled();
+    })
+    test('does not call a function if the value is left', () => {
+      const func = vi.fn();
+      Either.left(1).ifRight(func);
+      expect(func).not.toBeCalled();
+    })
+  })
 });

@@ -192,6 +192,20 @@ export class Either<L, R> {
     this.left.ifPresent(lFunc);
     this.right.ifPresent(rFunc);
   }
+
+  /**
+   * Runs the provided function if the left value is populated
+   */
+  public ifLeft(lFunc: (val:L) => void) {
+    this.left.ifPresent(lFunc)
+  }
+
+  /**
+   * Runs the provided function if the right value is populated
+   */
+  public ifRight(rFunc: (val:R) => void) {
+    this.right.ifPresent(rFunc)
+  }
 }
 
 
