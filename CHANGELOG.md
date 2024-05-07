@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.0](https://github.com/dancrumb/fpish/compare/v7.0.0...v7.1.0) (2024-05-07)
+
+
+### Features
+
+* **either:** add `ifLeft` and `ifRight` ([6a214ca](https://github.com/dancrumb/fpish/commit/6a214caac5546dac43901b3d633d43883b591f1e)), closes [#204](https://github.com/dancrumb/fpish/issues/204)
+
 ## [7.0.0](https://github.com/dancrumb/fpish/compare/v6.0.3...v7.0.0) (2024-05-06)
 
 
