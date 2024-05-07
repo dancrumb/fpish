@@ -10,11 +10,11 @@ export const asIs = identity
 /**
  * This function returns undefined, whatever you pass in
  */
-export const drop = (t: unknown) => undefined
+export const drop = (t: unknown): void => void undefined
 /**
- * {@link drop}
+ * This does the same as {@link drop}, but is typed to return undefined (rather than void)
  */
-export const asUndefined = drop;
+export const asUndefined = (t: unknown) => undefined
 
 
 export const logError = (e: Error) => {
