@@ -5,6 +5,7 @@ export * from './AsyncData.js';
 export * from './Either.js';
 export * from './Lazy.js';
 export * from './partial.js';
+export * from './utilities.js'
 
 /**
  * Take a function that requires a value of `T` and return a version that takes `Optional<T>`
