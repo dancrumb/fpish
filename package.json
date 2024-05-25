@@ -35,7 +35,7 @@
     "@types/node": "^20.12.10",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "7.10.0",
-    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/coverage-istanbul": "^1.6.0",
     "commit-and-tag-version": "^12.4.1",
     "conventional-changelog": "^6.0.0",
     "cz-conventional-changelog": "^3.3.0",
