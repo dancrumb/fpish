@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "yarn run tsc -p tsconfig.production.json",
-    "build:docs": "yarn typedoc",
+    "build:docs": "yarn typedoc src/",
     "release": "commit-and-tag-version",
     "lint": "yarn run eslint",
     "lint:ci": "yarn run eslint --format junit --output-file ./reports/eslint.xml src",
