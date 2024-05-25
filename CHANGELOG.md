@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.4.0](https://github.com/dancrumb/fpish/compare/v7.3.2...v7.4.0) (2024-05-25)
+
+
+### Features
+
+* **optional:** add the asOptional function ([2985dea](https://github.com/dancrumb/fpish/commit/2985dea34dc54093d3ad8ac0cb5b67fc2d3510da))
+
 ## [7.3.2](https://github.com/dancrumb/fpish/compare/v7.3.1...v7.3.2) (2024-05-25)
 
 
