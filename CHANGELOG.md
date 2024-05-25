@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.3.0](https://github.com/dancrumb/fpish/compare/v7.2.2...v7.3.0) (2024-05-25)
+
+
+### Features
+
+* **utilities:** add extractProperty and pickProperties utilities ([da42d4e](https://github.com/dancrumb/fpish/commit/da42d4e0366f43d14bddf4026e704a0ab76dd8cf))
+
 ## [7.2.2](https://github.com/dancrumb/fpish/compare/v7.2.1...v7.2.2) (2024-05-07)
 
 ## [7.2.1](https://github.com/dancrumb/fpish/compare/v7.2.0...v7.2.1) (2024-05-07)
