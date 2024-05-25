@@ -1,3 +1,5 @@
+import { Optional } from "./Optional.js"
+
 /**
  * This is the identity function - it returns whatever you pass in
  */
@@ -32,4 +34,11 @@ export const extractProperty = <O extends object>(key: keyof O) => (o: O) => o[k
  */
 export const pickProperties = <O extends object>(keys: (keyof O)[]) => (o: O): Partial<O> => {
     return keys.reduce((acc, key) => key in o ? ({ ...acc, [key]: o[key] }) : acc, {} satisfies Partial<O>);
+}
+
+/**
+ * Take function that returns a value and make that return an Optional
+ */
+export const asOptional = <A extends any[], R>(f: (...args: A) => R) => {
+    return (...args: A) => Optional.of<R>(f(...args))
 }

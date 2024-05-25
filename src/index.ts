@@ -28,10 +28,3 @@ export const makeNonOptional =
   <T>(f: (o: Optional<T>) => unknown) =>
     (v: T) =>
       f(Optional.of(v));
-
-/**
- * Take function that returns a value and make that return an Optional
- */
-export const asOptional = <A extends any[], R>(f: (...args: A) => R) => {
-  return (...args: A) => Optional.of<R>(f(...args))
-}

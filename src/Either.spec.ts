@@ -2,6 +2,7 @@ import { expect, describe, test, vi } from 'vitest';
 
 import { Either } from './Either.js';
 import { Optional } from './Optional.js';
+import { NoSuchElementException } from './exceptions/NoSuchElementException.js';
 
 describe('Either', () => {
   test('maps Optionals correctly (right)', async () => {
@@ -73,6 +74,11 @@ describe('Either', () => {
         Promise.resolve(Either.left(x + 'ing'))
       );
       expect(proceeded.getLeft()).toBe('testing');
+    });
+    test('handles right values', () => {
+      const e = Either.right<string, string>('test');
+      expect(e.proceedLeft<string>((x) => 'left' as any).getRight()).toBe('test');
+      expect(() => e.proceedLeft<string>((x) => 'left' as any).getLeft()).toThrow(NoSuchElementException)
     });
   });
   describe('.ifLeft', () => {

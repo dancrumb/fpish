@@ -6,14 +6,14 @@ export default defineConfig({
         coverage: {
             enabled: true,
             include: ['src/**'],
-            exclude: ['coverage', 'dist'],
+            exclude: ['coverage', 'dist', 'src/**/*.spec.ts'],
             reporter: ['html', 'lcov', 'cobertura', 'json'],
             thresholds: {
                 autoUpdate: true,
-                lines: 93,
-                statements: 93,
-                branches: 98.12,
-                functions: 85.56
+                lines: 93.41,
+                statements: 93.41,
+                branches: 98.8,
+                functions: 86.73
             }
         },
     },

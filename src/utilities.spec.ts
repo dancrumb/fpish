@@ -1,5 +1,6 @@
 import { expect, describe, test } from 'vitest';
-import { extractProperty, pickProperties } from './utilities.js';
+import { asOptional, extractProperty, pickProperties } from './utilities.js';
+import { Optional } from './Optional.js';
 
 // We may need to play fast and loose with typing here, just to test edge cases
 describe('extractProperty', () => {
@@ -39,4 +40,14 @@ describe('pickProperties', () => {
     test('handles duplicated properties', () => {
         expect(pickProperties(['a', 'a'])({ a: 42, b: undefined } as any)).toStrictEqual({ a: 42, })
     })
+})
+
+describe('asOptional', () => {
+    test('converts a function that returns a value to one that returns an Optional', () => {
+        const foo = () => 42
+        const oFoo = asOptional(foo);
+        expect(oFoo).toBeTypeOf('function')
+        expect(oFoo()).toBeInstanceOf(Optional)
+    })
+
 })
