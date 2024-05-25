@@ -17,6 +17,19 @@ export const drop = (t: unknown): void => void undefined
 export const asUndefined = (t: unknown) => undefined
 
 
-export const logError = (e: Error) => {
+export const logError = (e: Error) =>
     console.error(e)
+
+/**
+ * Sometimes, all you're looking to do is extract a single property from and object.
+ * That's what this function does
+ */
+export const extractProperty = <O extends object>(key: keyof O) => (o: O) => o[key]
+
+/**
+ * Sometimes, you want a subset of an object, with just a few properties
+ * That's what this function does
+ */
+export const pickProperties = <O extends object>(keys: (keyof O)[]) => (o: O) => {
+    return keys.reduce((acc, key) => key in o ? ({ ...acc, [key]: o[key] }) : acc, {} satisfies Partial<O>);
 }
