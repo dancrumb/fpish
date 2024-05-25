@@ -10,12 +10,13 @@ export default defineConfig({
             exclude: ['coverage', 'dist', 'src/**/*.spec.ts'],
             reporter: ['html', 'lcov', 'cobertura', 'json'],
             reportOnFailure: true,
+            all: true,
             thresholds: {
                 autoUpdate: true,
-                lines: 85.49,
-                statements: 85.3,
-                branches: 85.04,
-                functions: 85.18
+                lines: 87.04,
+                statements: 86.72,
+                branches: 86.91,
+                functions: 86.11
             }
         },
     },

@@ -81,6 +81,24 @@ describe('Either', () => {
       expect(() => e.proceedLeft<string>((x) => 'left' as any).getLeft()).toThrow(NoSuchElementException)
     });
   });
+  describe('.proceedRight', () => {
+    test('handles regular functions', () => {
+      const e = Either.right('test');
+      expect(e.proceedRight((x) => Either.right(x + 'ing')).getRight()).toBe('testing');
+    });
+    test('handles async functions', async () => {
+      const e = Either.right('test');
+      const proceeded = await e.proceedRight((x) =>
+        Promise.resolve(Either.right(x + 'ing'))
+      );
+      expect(proceeded.getRight()).toBe('testing');
+    });
+    test('handles left values', () => {
+      const e = Either.left<string, string>('test');
+      expect(e.proceedRight<string>((x) => 'left' as any).getLeft()).toBe('test');
+      expect(() => e.proceedRight<string>((x) => 'left' as any).getRight()).toThrow(NoSuchElementException)
+    });
+  });
   describe('.ifLeft', () => {
     test('calls a function if the value is left', () => {
       const func = vi.fn();

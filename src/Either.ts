@@ -148,8 +148,8 @@ export class Either<L, R> {
    *
    * @param rFunc
    */
-  public proceedRight<T>(rFunc: (val: R) => Promise<Either<L, T>>): Promise<Either<L, T>>;
   public proceedRight<T>(rFunc: (val: R) => Either<L, T>): Either<L, T>;
+  public proceedRight<T>(rFunc: (val: R) => Promise<Either<L, T>>): Promise<Either<L, T>>;
   public proceedRight<T>(
     rFunc: ((val: R) => Either<L, T>) | ((val: R) => Promise<Either<L, T>>)
   ): Either<L, T> | Promise<Either<L, T>> {
