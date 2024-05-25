@@ -12,7 +12,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ampproject/remapping@npm:^2.2.0, @ampproject/remapping@npm:^2.2.1":
+"@ampproject/remapping@npm:^2.2.0":
   version: 2.3.0
   resolution: "@ampproject/remapping@npm:2.3.0"
   dependencies:
@@ -339,13 +339,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bcoe/v8-coverage@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "@bcoe/v8-coverage@npm:0.2.3"
-  checksum: 850f9305536d0f2bd13e9e0881cb5f02e4f93fad1189f7b2d4bebf694e3206924eadee1068130d43c11b750efcc9405f88a8e42ef098b6d75239c0f047de1a27
-  languageName: node
-  linkType: hard
-
 "@commitlint/config-validator@npm:^19.0.3":
   version: 19.0.3
   resolution: "@commitlint/config-validator@npm:19.0.3"
@@ -441,7 +434,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^7.8.0
     "@typescript-eslint/parser": 7.10.0
     "@vitest/coverage-istanbul": ^1.6.0
-    "@vitest/coverage-v8": ^1.6.0
     commit-and-tag-version: ^12.4.1
     conventional-changelog: ^6.0.0
     cz-conventional-changelog: ^3.3.0
@@ -1190,29 +1182,6 @@ __metadata:
   peerDependencies:
     vitest: 1.6.0
   checksum: 09535035f538637481dcc7946211a7551e9e3bc7c4d90819731b4bdf7a9101f6602465ca9cae5cf7206c21555dac68c220f50f03751b38d9c27035fa88a2152f
-  languageName: node
-  linkType: hard
-
-"@vitest/coverage-v8@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "@vitest/coverage-v8@npm:1.6.0"
-  dependencies:
-    "@ampproject/remapping": ^2.2.1
-    "@bcoe/v8-coverage": ^0.2.3
-    debug: ^4.3.4
-    istanbul-lib-coverage: ^3.2.2
-    istanbul-lib-report: ^3.0.1
-    istanbul-lib-source-maps: ^5.0.4
-    istanbul-reports: ^3.1.6
-    magic-string: ^0.30.5
-    magicast: ^0.3.3
-    picocolors: ^1.0.0
-    std-env: ^3.5.0
-    strip-literal: ^2.0.0
-    test-exclude: ^6.0.0
-  peerDependencies:
-    vitest: 1.6.0
-  checksum: f5f29ec8768bc221f01f0183f7b326fc88113c6f1cdf215713f4ee00a47d01fd3ce446d1cd38935a005caab17f560490b351927e7e939669d39dbdf5ddf29360
   languageName: node
   linkType: hard
 
