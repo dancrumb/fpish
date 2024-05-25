@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "yarn run tsc -p tsconfig.production.json",
-    "build:docs": "yarn typedoc src/",
+    "build:docs": "yarn typedoc --plugin typedoc-plugin-missing-exports --readme README.md src/",
     "release": "commit-and-tag-version",
     "lint": "yarn run eslint",
     "lint:ci": "yarn run eslint --format junit --output-file ./reports/eslint.xml src",
@@ -45,6 +45,7 @@
     "prettier": "3.2.5",
     "ts-node": "10.9.2",
     "typedoc": "^0.25.13",
+    "typedoc-plugin-missing-exports": "^2.2.0",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },

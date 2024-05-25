@@ -225,6 +225,7 @@ __metadata:
     prettier: 3.2.5
     ts-node: 10.9.2
     typedoc: ^0.25.13
+    typedoc-plugin-missing-exports: ^2.2.0
     typescript: ^5.4.5
     vitest: ^1.6.0
   languageName: unknown
@@ -5890,6 +5891,15 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 33b39f3d0e8463985eeaeeacc3cb2e28bc3dfaf2a5ed219628c0b629d5d7b810b0eb2165f9f607c34871d5daa92ba1dc69f49051cf7d578b4cbd26c340b9d1b1
+  languageName: node
+  linkType: hard
+
+"typedoc-plugin-missing-exports@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "typedoc-plugin-missing-exports@npm:2.2.0"
+  peerDependencies:
+    typedoc: 0.24.x || 0.25.x
+  checksum: d210287864e3ab5c5973d864165c870b5b62c8b6ad1ff5053d604076449111dd751cfb68e5ba10c71594295c64372e6c8021e88ad5921c810e771a60ee8ee22f
   languageName: node
   linkType: hard
 

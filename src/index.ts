@@ -12,8 +12,8 @@ export * from './utilities.js'
  *
  * NB: If an empty `Optional` is passed to the new function, a `NoSuchElementException`
  *     will be thrown
- *
- * @param f
+ * 
+ * @category Utilities
  */
 export const makeOptional =
   <T>(f: (o: T) => unknown) =>
@@ -22,7 +22,8 @@ export const makeOptional =
 
 /**
  * Take a function that requires a value of `Optional<T>` and return a version that takes `T`
- * @param f
+ * 
+ * @category Utilities
  */
 export const makeNonOptional =
   <T>(f: (o: Optional<T>) => unknown) =>
