@@ -660,9 +660,9 @@ __metadata:
   linkType: hard
 
 "@eslint/js@npm:^9.2.0":
-  version: 9.3.0
-  resolution: "@eslint/js@npm:9.3.0"
-  checksum: 5af317c8bcfef660efc17624b825c71bac16770f8866bfdc2922e1fcc2010af96e4f896e91724b81550e5dba6db6983c221b5be9a1294c9e727dee9ada15c9f8
+  version: 9.5.0
+  resolution: "@eslint/js@npm:9.5.0"
+  checksum: e79639f7d9fd754e432dd33d1908d31c48bcf93aadc9e88b987c51b0208b5b3120f0c0038108ff2517c35b8c3d4bcd74f4e506a93b676b8bb311d29cce111c09
   languageName: node
   linkType: hard
 
