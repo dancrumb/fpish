@@ -22,9 +22,11 @@ export enum RemoteDataStatus {
 
 /**
  * This class represents data from a remote source that takes time to load.
+ * 
+ * This data can be a single value or an array of values. Since there's no way to
+ * infer the shape of the data, the caller is expected to know and to make the
+ * appropriate calls
  *
- * It can be single-valued or an array of values. The caller is expected to
- * know which it is
  *
  * @template D A type representing the shape of data that is being requested
  * @template E A type representing the shape of errors that can be returned
