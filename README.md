@@ -1,9 +1,14 @@
 # FP-ish
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdancrumb%2Ffpish.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdancrumb%2Ffpish?ref=badge_shield)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/dancrumb/fpish/build-and-test.yml?branch=main)](https://github.com/dancrumb/fpish/actions/workflows/build-and-test.yml)
 [![Known Vulnerabilities](https://snyk.io/test/github/dancrumb/fpish/badge.svg)](https://snyk.io/test/github/dancrumb/fpish)
 
 This package contains a series of "FP-friendly" classes for use in your code.
+
+## API Documentation
+
+See https://dancrumb.com/fpish/
 
 ## What is "FP-friendly"?
 
