@@ -1,24 +1,8 @@
 import { AsyncDatum } from "./AsyncDatum.js";
+import { RemoteDataStatus } from "./RemoteDataStatus.js";
 import { Optional } from "./Optional.js";
 
 
-/**
- * The various states that an async request for data can be in
- */
-export enum RemoteDataStatus {
-  /** No request has been sent yet */
-  'NotAsked',
-  /** A request has been sent, but no response has been received */
-  'Loading',
-  /** A response has been received and it indicated an error */
-  'Failed',
-  /** A response has been received and it was successful */
-  'Succeeded',
-  /** @deprecated synonym for `Failed` */
-  'Failure' = RemoteDataStatus.Failed,
-  /** @deprecated synonym for `Succeeded` */
-  'Success' = RemoteDataStatus.Succeeded,
-}
 
 /**
  * This class represents data from a remote source that takes time to load.
@@ -94,7 +78,7 @@ export class AsyncData<D, E = {}> {
    */
   static errored<ED, EE = {}>(error: EE) {
     return new AsyncData<ED, EE>({
-      status: RemoteDataStatus.Failure,
+      status: RemoteDataStatus.Failed,
       error,
     });
   }
