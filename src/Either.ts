@@ -188,9 +188,10 @@ export class Either<L, R> {
    * @param lFunc
    * @param rFunc
    */
-  public apply(lFunc: (val: L) => void, rFunc: (val: R) => void): void {
+  public apply(lFunc: (val: L) => void, rFunc: (val: R) => void) {
     this.left.ifPresent(lFunc);
     this.right.ifPresent(rFunc);
+    return this;
   }
 
   /**
@@ -198,6 +199,7 @@ export class Either<L, R> {
    */
   public ifLeft(lFunc: (val: L) => void) {
     this.left.ifPresent(lFunc)
+    return this;
   }
 
   /**
@@ -205,5 +207,6 @@ export class Either<L, R> {
    */
   public ifRight(rFunc: (val: R) => void) {
     this.right.ifPresent(rFunc)
+    return this;
   }
 }
