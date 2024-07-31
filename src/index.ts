@@ -2,6 +2,8 @@ import { Optional } from './Optional.js';
 
 export * from './Optional.js';
 export * from './AsyncData.js';
+export * from './AsyncDatum.js';
+export * from './RemoteDataStatus.js';
 export * from './Either.js';
 export * from './Lazy.js';
 export * from './partial.js';
