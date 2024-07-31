@@ -221,6 +221,8 @@ export class Optional<T> {
    * type checking. This is generally used for up- and down-casting.
    *
    * @param guard
+   * 
+   * @deprecated just use `filter` with a type guard
    */
   cast<S extends T>(guard: (o: T | S) => boolean): Optional<S> {
     if (this.isPresent() && guard(this.get())) {
