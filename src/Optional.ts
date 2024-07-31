@@ -45,6 +45,8 @@ export class Optional<T> {
     return new Optional<NonNullable<NT>>(value as NonNullable<NT>);
   }
 
+  filter<S extends T>(predicate: (v: T) => v is S): Optional<S>;
+  filter(predicate: (v: T) => boolean): Optional<T>
   /**
    * Checks the value of the optional. If it matches the `predicate`, then a non-empty
    * Optional of the same value will be returned.
@@ -53,7 +55,7 @@ export class Optional<T> {
    *
    * @param predicate
    */
-  filter(predicate: (v: T) => boolean): Optional<T> {
+  filter<S extends T>(predicate: (v: T) => v is S): Optional<S> {
     if (haveValue(this.value) && predicate(this.value)) {
       return new Optional(this.value);
     }

@@ -442,6 +442,7 @@ __metadata:
     git-cz: 4.9.0
     prettier: 3.2.5
     ts-node: 10.9.2
+    tsafe: ^1.7.2
     typedoc: ^0.25.13
     typedoc-plugin-missing-exports: ^2.2.0
     typescript: ^5.4.5
@@ -6136,6 +6137,13 @@ __metadata:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: fde256c9073969e234526e2cfead42591b9a2aec5222bac154b0de2fa9e4ceb30efcd717ee8bc785a56f3a119bdd5aa27b333d9dbec94ed254bd26f8944c67ac
+  languageName: node
+  linkType: hard
+
+"tsafe@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "tsafe@npm:1.7.2"
+  checksum: a02da1bb81fed3c35b1ce1ea5f6118a632c436d41536ca7a8a399d5890add53a0352da6f48b5fbb66d9f80c66c71de45de6071f696781fa03e738058d112ee80
   languageName: node
   linkType: hard
 

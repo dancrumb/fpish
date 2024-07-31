@@ -1,5 +1,5 @@
 import { expect, describe, test, vi } from 'vitest';
-
+import {assert, Equals} from "tsafe";
 import { Optional } from './Optional.js';
 import { NoSuchElementException } from './exceptions/NoSuchElementException.js';
 
@@ -118,6 +118,16 @@ describe('Optional', () => {
           .filter(() => true)
           .isPresent()
       ).toBe(false);
+    });
+    test('filters to a new type if given a type guard', () => {
+      type A = { x: number};
+      type B = A & {  z: string};
+      const a: A = { x: 1};
+      const oA = Optional.of(a);
+      const filtered = oA.filter((x): x is B => 'z' in x);
+
+      assert<Equals<typeof filtered, Optional<B>>>(true);
+
     });
   });
   describe('#toJSON', () => {
