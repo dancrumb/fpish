@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.5.0](https://github.com/dancrumb/fpish/compare/v7.4.1...v7.5.0) (2024-07-31)
+
+
+### Features
+
+* **optional:** add support for type-guards to filter ([5b8ef88](https://github.com/dancrumb/fpish/commit/5b8ef8879400939b3357adcfd2e3de7439b93dcd))
+
 ## [7.4.1](https://github.com/dancrumb/fpish/compare/v7.4.0...v7.4.1) (2024-07-30)
 
 ## [7.4.0](https://github.com/dancrumb/fpish/compare/v7.3.2...v7.4.0) (2024-05-25)
