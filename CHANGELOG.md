@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.0.0](https://github.com/dancrumb/fpish/compare/v7.6.0...v8.0.0) (2024-07-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* **remotedatastatus:** Removing two deprecated enum values
+* **asyncdata:** The `singleValue` and `getAllOptional` methods are no longer available; neither is
+the `loadedSingle` instantiator.
+
+* **remotedatastatus:** put RemoteDataStatus in its own file and remove deprecated values ([0c92c8a](https://github.com/dancrumb/fpish/commit/0c92c8a77c3ea15e7712d19d29a4e93bfd346fff))
+
+
+### Features
+
+* **asyncdata:** create AsyncDatum to better support single-values ([3fcf059](https://github.com/dancrumb/fpish/commit/3fcf059386fcb8a8bb1dfa28cc943cf68d68f7a7))
+
 ## [7.6.0](https://github.com/dancrumb/fpish/compare/v7.5.1...v7.6.0) (2024-07-31)
 
 

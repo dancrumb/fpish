@@ -1,6 +1,6 @@
 {
   "name": "@dancrumb/fpish",
-  "version": "7.6.0",
+  "version": "8.0.0",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
