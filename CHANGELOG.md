@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.6.0](https://github.com/dancrumb/fpish/compare/v7.5.1...v7.6.0) (2024-07-31)
+
+
+### Features
+
+* **either:** return the Either when calling `ifLeft`, `ifRight` or `apply` ([fda9cb9](https://github.com/dancrumb/fpish/commit/fda9cb9f886d89b46296d6987144b0e226fcadac))
+
 ## [7.5.1](https://github.com/dancrumb/fpish/compare/v7.5.0...v7.5.1) (2024-07-31)
 
 ## [7.5.0](https://github.com/dancrumb/fpish/compare/v7.4.1...v7.5.0) (2024-07-31)
