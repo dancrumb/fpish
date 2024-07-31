@@ -114,20 +114,15 @@ describe('AsyncData', () => {
 
     test('can be converted to an Optional if there is data', async () => {
       const async = AsyncData.loaded<string>(['test']);
-      expect(async.getOptional().get()).toBe('test');
+      expect(async.getOptional().get()).toEqual(['test']);
     });
 
     test('can be converted to an Optional when a second request has been made', async () => {
       const async = AsyncData.loaded<string>(['test']);
       expect(async.getOptional().isPresent()).toBe(true);
       const reload = async.loadMore();
-      expect(reload.getOptional().get()).toBe('test');
+      expect(reload.getOptional().get()).toEqual(['test']);
       expect;
-    });
-
-    test('can be converted to an Optional array if there is data', async () => {
-      const async = AsyncData.loaded<string>(['test']);
-      expect(async.getAllOptional().get()).toEqual(['test']);
     });
 
     test('can be converted to an empty Optional if there is an error', async () => {
@@ -138,16 +133,16 @@ describe('AsyncData', () => {
 
   describe('.orElse', () => {
     test('returns the internal value as a single value if there is one', () => {
-      expect(AsyncData.loaded([1]).orElse(3)).toEqual(1);
+      expect(AsyncData.loaded([1]).orElse([3])).toEqual([1]);
     });
     test('returns the internal value as an array if there is one', () => {
       expect(AsyncData.loaded([1, 2]).orElse([3, 4])).toEqual([1, 2]);
     });
     test('returns the default value if there is no internal value', () => {
-      expect(AsyncData.loading().orElse(3)).toEqual(3);
+      expect(AsyncData.loading().orElse([3])).toEqual([3]);
     });
     test('returns the internal value if on a second load', () => {
-      expect(AsyncData.loaded([5]).loadMore().orElse(3)).toEqual(5);
+      expect(AsyncData.loaded([5]).loadMore().orElse([3])).toEqual([5]);
     });
     test('returns the default array if there is no internal value', () => {
       expect(AsyncData.loading().orElse([3, 4])).toEqual([3, 4]);
@@ -180,29 +175,6 @@ describe('AsyncData', () => {
     test('throws an error if data load failed', () => {
       const ad = AsyncData.errored(new Error('Testing error'));
       expect(() => ad.value()).toThrowError('Testing error');
-    });
-  });
-
-  describe('.singleValue', () => {
-    test('returns the internal value if successfully loaded', () => {
-      const ad = AsyncData.loaded([1]);
-      expect(ad.singleValue()).toBe(1);
-    });
-
-    test('throws an error if not single-valued', () => {
-      const ad = AsyncData.loaded([1, 2]);
-      expect(() => ad.singleValue()).toThrowError('Data is not single-valued');
-    });
-    test('throws an error if data is not loaded', () => {
-      const ad = AsyncData.loading();
-      expect(() => ad.singleValue()).toThrowError(
-        'Trying to access AsyncData before it has data'
-      );
-    });
-
-    test('throws an error if data load failed', () => {
-      const ad = AsyncData.errored(new Error('Testing error'));
-      expect(() => ad.singleValue()).toThrowError('Testing error');
     });
   });
 
