@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.5.1](https://github.com/dancrumb/fpish/compare/v7.5.0...v7.5.1) (2024-07-31)
+
 ## [7.5.0](https://github.com/dancrumb/fpish/compare/v7.4.1...v7.5.0) (2024-07-31)
 
 
