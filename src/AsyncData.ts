@@ -1,24 +1,8 @@
-import { Either } from "./Either.js";
+import { AsyncDatum } from "./AsyncDatum.js";
+import { RemoteDataStatus } from "./RemoteDataStatus.js";
 import { Optional } from "./Optional.js";
 
 
-/**
- * The various states that an async request for data can be in
- */
-export enum RemoteDataStatus {
-  /** No request has been sent yet */
-  'NotAsked',
-  /** A request has been sent, but no response has been received */
-  'Loading',
-  /** A response has been received and it indicated an error */
-  'Failed',
-  /** A response has been received and it was successful */
-  'Succeeded',
-  /** @deprecated synonym for `Failed` */
-  'Failure' = RemoteDataStatus.Failed,
-  /** @deprecated synonym for `Succeeded` */
-  'Success' = RemoteDataStatus.Succeeded,
-}
 
 /**
  * This class represents data from a remote source that takes time to load.
@@ -33,7 +17,7 @@ export enum RemoteDataStatus {
  */
 export class AsyncData<D, E = {}> {
   protected status: RemoteDataStatus = RemoteDataStatus.NotAsked;
-  private readonly internal: Either<E, ReadonlyArray<D>>;
+  readonly #internal: AsyncDatum< readonly D[], E>;
 
   private constructor({
     status,
@@ -45,13 +29,12 @@ export class AsyncData<D, E = {}> {
     error?: E;
   }) {
     this.status = status;
-    if (data) {
-      this.internal = Either.right(data);
-    } else if (error) {
-      this.internal = Either.left(error);
-    } else {
-      this.internal = Either.right(Optional.empty());
-    }
+    this.#internal = new AsyncDatum({
+      status,
+      data,
+      error,
+    });
+    
   }
 
   /**
@@ -71,18 +54,6 @@ export class AsyncData<D, E = {}> {
   static loading<LD, LE = {}>() {
     return new AsyncData<LD, LE>({
       status: RemoteDataStatus.Loading,
-    });
-  }
-
-  /**
-   * Create an instance of this type that indicates that a single value has been returned.
-   *
-   * @param data
-   */
-  static loadedSingle<LD, LE = {}>(data: LD) {
-    return new AsyncData<LD, LE>({
-      status: RemoteDataStatus.Succeeded,
-      data: Object.freeze([data]),
     });
   }
 
@@ -107,7 +78,7 @@ export class AsyncData<D, E = {}> {
    */
   static errored<ED, EE = {}>(error: EE) {
     return new AsyncData<ED, EE>({
-      status: RemoteDataStatus.Failure,
+      status: RemoteDataStatus.Failed,
       error,
     });
   }
@@ -124,7 +95,7 @@ export class AsyncData<D, E = {}> {
    * @returns true if this object currently contains retrievable data, i.e. not an error and not an inflight request
    */
   containsData() {
-    return this.internal.isRight();
+    return this.#internal.containsData();
   }
 
   /**
@@ -180,44 +151,27 @@ export class AsyncData<D, E = {}> {
    *
    */
   value(): ReadonlyArray<D> {
-    if (this.containsData()) {
-      return this.internal.getRight();
+    try {
+    return this.#internal.value()
+    } catch (e) {
+      if (this.is(RemoteDataStatus.Failed)) {
+        throw e;
+      }
+      throw new Error("Trying to access AsyncData before it has data",{cause:e});
     }
-    if (this.is(RemoteDataStatus.Failed)) {
-      throw this.internal.getLeft();
-    }
-
-    throw new Error('Trying to access AsyncData before it has data');
-  }
-
-  /**
-   *
-   */
-  singleValue(): D {
-    const val = this.value();
-    if (val.length !== 1) {
-      throw new Error('Data is not single-valued');
-    }
-    return val[0];
   }
 
   loadMore(): AsyncData<D, E> {
     if (this.containsData()) {
       return new AsyncData<D, E>({
         status: RemoteDataStatus.Loading,
-        data: this.internal.getRight(),
+        data: this.#internal.value(),
       });
     }
 
     return AsyncData.loading();
   }
 
-  /**
-   * Get the data as an optional and treat it as a single value
-   */
-  getOptional(): Optional<D> {
-    return this.getAllOptional().map((a) => a[0]);
-  }
 
   /**
    * Get the data as an optional and treat it as an array
@@ -225,15 +179,12 @@ export class AsyncData<D, E = {}> {
    * This will return any internal data that exists. As a result, it will
    * return data after a call to `loadMore`.
    */
-  getAllOptional(): Optional<readonly D[]> {
+  getOptional(): Optional<readonly D[]> {
     return this.containsData()
-      ? Optional.of(this.internal.getRight())
+      ? Optional.of(this.#internal.value())
       : Optional.empty<D[]>();
   }
 
-  private isArray(v: D | readonly D[]): v is readonly D[] {
-    return Array.isArray(v);
-  }
 
   /**
    * Treats the data as an Optional and returns the internal
@@ -241,15 +192,12 @@ export class AsyncData<D, E = {}> {
    *
    * @param v
    */
-  orElse(v: D | readonly D[]): typeof v {
-    if (this.isArray(v)) {
-      return this.getAllOptional().orElse(v);
-    }
+  orElse(v: readonly D[]): typeof v {
     return this.getOptional().orElse(v);
   }
 
   append(v: D[]): AsyncData<D> {
-    const currentData = this.containsData() ? this.internal.getRight() : [];
+    const currentData = this.containsData() ? this.#internal.value() : [];
     return AsyncData.loaded(currentData.concat(v));
   }
 
@@ -259,15 +207,11 @@ export class AsyncData<D, E = {}> {
    */
   private getNonLoadedResult<U>() {
     if (this.status === RemoteDataStatus.NotAsked) {
-      return AsyncData.notAsked<U, E>();
+      return AsyncData.notAsked<U[], E>();
     }
 
     if (this.status === RemoteDataStatus.Loading && !this.containsData()) {
-      return AsyncData.loading<U, E>();
-    }
-
-    if (this.status === RemoteDataStatus.Failure) {
-      return AsyncData.errored<U, E>(this.internal.getLeft());
+      return AsyncData.loading<U[], E>();
     }
   }
 
@@ -276,8 +220,8 @@ export class AsyncData<D, E = {}> {
   ): AsyncData<U, E> {
     return (
       this.getNonLoadedResult() ??
-      this.cloneWithNewData(this.internal.getRight().map(callbackfn))
-    );
+      this.cloneWithNewData(this.#internal.value().map(callbackfn))
+    ) as AsyncData<U, E>;
   }
 
   mapValue<U>(
@@ -291,8 +235,8 @@ export class AsyncData<D, E = {}> {
   ): AsyncData<D, E> {
     return (
       this.getNonLoadedResult() ??
-      this.cloneWithNewData(this.internal.getRight().filter(callbackfn))
-    );
+      this.cloneWithNewData(this.#internal.value().filter(callbackfn))
+    ) as AsyncData<D, E>;
   }
 
   reduce<U>(
@@ -307,9 +251,9 @@ export class AsyncData<D, E = {}> {
     return (
       this.getNonLoadedResult() ??
       this.cloneWithNewData([
-        this.internal.getRight().reduce<U>(callbackfn, initialValue),
+        this.#internal.value().reduce<U>(callbackfn, initialValue),
       ])
-    );
+    ) as AsyncData<U, E>;
   }
 
   find(

@@ -1,6 +1,6 @@
 {
   "name": "@dancrumb/fpish",
-  "version": "7.4.1",
+  "version": "8.0.0",
   "description": "FP-friendly classes for Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@eslint/js": "^9.2.0",
     "@types/node": "^20.12.10",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "7.10.0",
     "@vitest/coverage-istanbul": "^1.6.0",
     "commit-and-tag-version": "^12.4.1",
@@ -44,6 +44,7 @@
     "git-cz": "4.9.0",
     "prettier": "3.3.3",
     "ts-node": "10.9.2",
+    "tsafe": "^1.7.2",
     "typedoc": "^0.25.13",
     "typedoc-plugin-missing-exports": "^2.2.0",
     "typescript": "^5.4.5",
