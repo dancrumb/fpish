@@ -432,7 +432,7 @@ __metadata:
     "@eslint/js": ^9.2.0
     "@types/node": ^20.12.10
     "@typescript-eslint/eslint-plugin": ^8.0.0
-    "@typescript-eslint/parser": 7.10.0
+    "@typescript-eslint/parser": 8.2.0
     "@vitest/coverage-istanbul": ^1.6.0
     commit-and-tag-version: ^12.4.1
     conventional-changelog: ^6.0.0
@@ -1065,31 +1065,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:7.10.0":
-  version: 7.10.0
-  resolution: "@typescript-eslint/parser@npm:7.10.0"
+"@typescript-eslint/parser@npm:8.2.0":
+  version: 8.2.0
+  resolution: "@typescript-eslint/parser@npm:8.2.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 7.10.0
-    "@typescript-eslint/types": 7.10.0
-    "@typescript-eslint/typescript-estree": 7.10.0
-    "@typescript-eslint/visitor-keys": 7.10.0
+    "@typescript-eslint/scope-manager": 8.2.0
+    "@typescript-eslint/types": 8.2.0
+    "@typescript-eslint/typescript-estree": 8.2.0
+    "@typescript-eslint/visitor-keys": 8.2.0
     debug: ^4.3.4
   peerDependencies:
-    eslint: ^8.56.0
+    eslint: ^8.57.0 || ^9.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 68a30e03f77e8cb58c6f7407d6b90befaa1c97cc3fc2d6b9b43f7003441f2c4ae50b14aaf9c2cb8b2c0e99175c5d753812b9d0a43fadaf8878cde92d82d86266
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/scope-manager@npm:7.10.0":
-  version: 7.10.0
-  resolution: "@typescript-eslint/scope-manager@npm:7.10.0"
-  dependencies:
-    "@typescript-eslint/types": 7.10.0
-    "@typescript-eslint/visitor-keys": 7.10.0
-  checksum: 27a954c4655d649007103009d77a0c68038afa81b0199c1cb9f69632e29476a9c6ace2d4eb8ace64cc47d351d6dca8f497f99a71d9e0dc5d700986db57b28a65
+  checksum: 3121ac888f080bafdb4e57c6bf949222d4756fcce617620af574a1b3fa93dec315098c70309849fcd0fdd70edcbbed33dd1f3b6320bb379016c6407de588b96e
   languageName: node
   linkType: hard
 
@@ -1100,6 +1090,16 @@ __metadata:
     "@typescript-eslint/types": 8.0.0
     "@typescript-eslint/visitor-keys": 8.0.0
   checksum: 0eea33f5fa5b8df0e8831c1c842403ac71e58b46b394e601b4aeda844c4a41fe19c6c1bbe528fe49093c3ba4ec6d6f444237b5ca073e3c40256b81c6b8671e78
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/scope-manager@npm:8.2.0":
+  version: 8.2.0
+  resolution: "@typescript-eslint/scope-manager@npm:8.2.0"
+  dependencies:
+    "@typescript-eslint/types": 8.2.0
+    "@typescript-eslint/visitor-keys": 8.2.0
+  checksum: c42fdd44bf06fcf0767ebee33b0d9199365066afa43e8f8fe7243c4b6ecb8d9056126df98d5ce771b4ff9f91132974c0348754ee1862cb6d5ae78e6608530650
   languageName: node
   linkType: hard
 
@@ -1118,13 +1118,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:7.10.0":
-  version: 7.10.0
-  resolution: "@typescript-eslint/types@npm:7.10.0"
-  checksum: 9a16c86e8ace5f38281d80895844e9a4d963887e1304d335ed4e66eefe6646f24d98485f242fe9ee592e870c675dcd92683918f536dd462e26eb45fa69f5e2a5
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/types@npm:8.0.0":
   version: 8.0.0
   resolution: "@typescript-eslint/types@npm:8.0.0"
@@ -1132,22 +1125,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:7.10.0":
-  version: 7.10.0
-  resolution: "@typescript-eslint/typescript-estree@npm:7.10.0"
-  dependencies:
-    "@typescript-eslint/types": 7.10.0
-    "@typescript-eslint/visitor-keys": 7.10.0
-    debug: ^4.3.4
-    globby: ^11.1.0
-    is-glob: ^4.0.3
-    minimatch: ^9.0.4
-    semver: ^7.6.0
-    ts-api-utils: ^1.3.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 2d63d608dcc87aa96b6d1300eeb2eb94fb68b9168b3ce0a05b8256adb132fdd9217c8358d467fad3f5ec4dea25e266d161282da4d032d66e3ab6a62d7ece568d
+"@typescript-eslint/types@npm:8.2.0":
+  version: 8.2.0
+  resolution: "@typescript-eslint/types@npm:8.2.0"
+  checksum: 915fd7667308cb3fe3a50bbeb5b7cfa34ece87732a4e1107e6b4afcde64e6885dc3fcae0a0ccc417e90cd55090e4eeccc1310225be8706a58f522a899be8e626
   languageName: node
   linkType: hard
 
@@ -1170,6 +1151,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/typescript-estree@npm:8.2.0":
+  version: 8.2.0
+  resolution: "@typescript-eslint/typescript-estree@npm:8.2.0"
+  dependencies:
+    "@typescript-eslint/types": 8.2.0
+    "@typescript-eslint/visitor-keys": 8.2.0
+    debug: ^4.3.4
+    globby: ^11.1.0
+    is-glob: ^4.0.3
+    minimatch: ^9.0.4
+    semver: ^7.6.0
+    ts-api-utils: ^1.3.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 9bddd72398d24c5fb1a8c6d0481886928d80e6798ae357778574ac2c8b6c6e18cc32e42865167f0698fede9ad5abbdeced0d0b1b45486cf4eeff7ae30bb5b87d
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/utils@npm:8.0.0":
   version: 8.0.0
   resolution: "@typescript-eslint/utils@npm:8.0.0"
@@ -1184,16 +1184,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:7.10.0":
-  version: 7.10.0
-  resolution: "@typescript-eslint/visitor-keys@npm:7.10.0"
-  dependencies:
-    "@typescript-eslint/types": 7.10.0
-    eslint-visitor-keys: ^3.4.3
-  checksum: 19218120d1295a93b6ce5163f517180eb779c0c578e0f8320887a5816576c8a1497032c25d2d1b2abea345f5929e91cda2aab15aafd3c4a52d1c3aef8744d55a
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/visitor-keys@npm:8.0.0":
   version: 8.0.0
   resolution: "@typescript-eslint/visitor-keys@npm:8.0.0"
@@ -1201,6 +1191,16 @@ __metadata:
     "@typescript-eslint/types": 8.0.0
     eslint-visitor-keys: ^3.4.3
   checksum: ae823bf8bd4d24e5b4bc5340139f239f8cd950231c0efdb7a30b576e774997de938489f191db87b0397a065b9fa961be37d5f47c2a4b359aa2055e692fcde4c1
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:8.2.0":
+  version: 8.2.0
+  resolution: "@typescript-eslint/visitor-keys@npm:8.2.0"
+  dependencies:
+    "@typescript-eslint/types": 8.2.0
+    eslint-visitor-keys: ^3.4.3
+  checksum: 2f701efa1b63bc4141bbe3a38f0f0b51cbdcd3df3d8ca87232ac1d5cf16e957682302da74106952edb87e6435f2ab99e3b4f66103b94a21c2b5aa7d030926f06
   languageName: node
   linkType: hard
 
