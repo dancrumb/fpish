@@ -42,7 +42,7 @@
     "eslint": "8.56.0",
     "eslint-formatter-junit": "^8.40.0",
     "git-cz": "4.9.0",
-    "prettier": "3.2.5",
+    "prettier": "3.3.3",
     "ts-node": "10.9.2",
     "tsafe": "^1.7.2",
     "typedoc": "^0.27.6",
